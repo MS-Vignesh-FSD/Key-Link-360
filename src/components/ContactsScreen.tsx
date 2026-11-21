@@ -528,15 +528,15 @@ export default function ContactsScreen({
             <button
               type="button"
               onClick={triggerExport}
-              className="flex items-center gap-2 border border-gray-200 hover:bg-gray-50 rounded-xl px-4 py-2.5 text-sm font-semibold text-gray-600 transition-colors bg-white shadow-sm"
+              className="flex items-center gap-2 border border-[var(--key-border)] hover:bg-[var(--key-btn-secondary-hover-bg,rgba(255,255,255,0.08))] rounded-xl px-4 py-2.5 text-sm font-semibold text-[var(--key-text)] transition-colors bg-[var(--key-surface)] shadow-sm"
             >
-              <Download className="h-4.5 w-4.5 text-gray-400" />
+              <Download className="h-4.5 w-4.5 text-[var(--key-muted)]" />
               <span>Export CSV</span>
             </button>
             <button
               type="button"
               onClick={openCreateModal}
-              className="flex items-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white rounded-xl px-5 py-2.5 text-sm font-semibold shadow-md shadow-indigo-100 transition-all active:scale-95"
+              className="key-btn-accent inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold shadow-md transition-all active:scale-95"
             >
               <Plus className="h-4.5 w-4.5" />
               <span>Add Contact</span>
@@ -551,16 +551,16 @@ export default function ContactsScreen({
             role="dialog"
             aria-modal="true"
             aria-labelledby="contact-modal-title"
-            className="bg-white rounded-3xl max-w-md w-full p-4 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-200"
+            className="bg-[var(--key-surface-strong,#1a1635)] text-[var(--key-text)] rounded-3xl max-w-md w-full p-5 shadow-2xl border border-[var(--key-border)] animate-in fade-in zoom-in-95 duration-200"
           >
             <div className="flex items-center justify-between mb-4">
-              <h3 id="contact-modal-title" className="font-display font-bold text-lg text-gray-950">
+              <h3 id="contact-modal-title" className="font-display font-bold text-lg text-[var(--key-text)]">
                 {editingContact ? "Edit Contact" : "Add New Contact"}
               </h3>
               <button
                 type="button"
                 onClick={closeModal}
-                className="text-gray-400 hover:text-gray-600 p-1 rounded-lg hover:bg-slate-50"
+                className="text-[var(--key-muted)] hover:text-[var(--key-text)] p-1 rounded-lg hover:bg-[var(--key-surface)] transition-colors"
                 aria-label="Close"
               >
                 <X className="h-5 w-5" />
@@ -568,13 +568,13 @@ export default function ContactsScreen({
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-3" noValidate>
-              <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm space-y-3 text-left">
-                <span className="font-bold block text-center text-slate-700 uppercase tracking-widest font-mono text-[10px]">
+              <div className="bg-[var(--key-surface)] border border-[var(--key-border)] rounded-2xl p-4 shadow-sm space-y-3 text-left">
+                <span className="font-bold block text-center text-[var(--key-muted)] uppercase tracking-widest font-mono text-[10px]">
                   {editingContact ? "Edit lead block" : "Manual lead block"}
                 </span>
 
                 <div>
-                  <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">
+                  <label className="block text-[10px] font-bold text-[var(--key-muted)] uppercase tracking-wider mb-1">
                     Full name *
                   </label>
                   <input
@@ -584,12 +584,12 @@ export default function ContactsScreen({
                     placeholder="e.g. John Doe"
                     value={form.name}
                     onChange={(e) => setForm((prev) => ({ ...prev, name: e.target.value }))}
-                    className="w-full bg-slate-50 border border-slate-200 text-slate-800 focus:outline-none focus:ring-1 focus:ring-violet-500 rounded-xl py-2 px-3 text-xs"
+                    className="w-full bg-[var(--key-input-bg)] border border-[var(--key-border)] text-[var(--key-text)] placeholder-[var(--key-muted)] focus:outline-none focus:ring-1 focus:ring-[var(--key-accent)] rounded-xl py-2 px-3 text-xs"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">
+                  <label className="block text-[10px] font-bold text-[var(--key-muted)] uppercase tracking-wider mb-1">
                     Email address *
                   </label>
                   <input
@@ -598,12 +598,12 @@ export default function ContactsScreen({
                     placeholder="john@example.com"
                     value={form.email}
                     onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
-                    className="w-full bg-slate-50 border border-slate-200 text-slate-800 focus:outline-none focus:ring-1 focus:ring-violet-500 rounded-xl py-2 px-3 text-xs"
+                    className="w-full bg-[var(--key-input-bg)] border border-[var(--key-border)] text-[var(--key-text)] placeholder-[var(--key-muted)] focus:outline-none focus:ring-1 focus:ring-[var(--key-accent)] rounded-xl py-2 px-3 text-xs"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">
+                  <label className="block text-[10px] font-bold text-[var(--key-muted)] uppercase tracking-wider mb-1">
                     Phone number *
                   </label>
                   <input
@@ -612,12 +612,12 @@ export default function ContactsScreen({
                     placeholder="+1 555-0199"
                     value={form.phone}
                     onChange={(e) => setForm((prev) => ({ ...prev, phone: e.target.value }))}
-                    className="w-full bg-slate-50 border border-slate-200 text-slate-800 focus:outline-none focus:ring-1 focus:ring-violet-500 rounded-xl py-2 px-3 text-xs"
+                    className="w-full bg-[var(--key-input-bg)] border border-[var(--key-border)] text-[var(--key-text)] placeholder-[var(--key-muted)] focus:outline-none focus:ring-1 focus:ring-[var(--key-accent)] rounded-xl py-2 px-3 text-xs"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">
+                  <label className="block text-[10px] font-bold text-[var(--key-muted)] uppercase tracking-wider mb-1">
                     Tag (optional)
                   </label>
                   <input
@@ -625,16 +625,16 @@ export default function ContactsScreen({
                     placeholder="e.g. Newsletter, VIP"
                     value={form.tag}
                     onChange={(e) => setForm((prev) => ({ ...prev, tag: e.target.value }))}
-                    className="w-full bg-slate-50 border border-slate-200 text-slate-800 focus:outline-none focus:ring-1 focus:ring-violet-500 rounded-xl py-2 px-3 text-xs"
+                    className="w-full bg-[var(--key-input-bg)] border border-[var(--key-border)] text-[var(--key-text)] placeholder-[var(--key-muted)] focus:outline-none focus:ring-1 focus:ring-[var(--key-accent)] rounded-xl py-2 px-3 text-xs"
                   />
                 </div>
 
-                <label className="flex items-center gap-2 text-slate-700 cursor-pointer text-xs">
+                <label className="flex items-center gap-2 text-[var(--key-text)] cursor-pointer text-xs">
                   <input
                     type="checkbox"
                     checked={form.marketingOptIn}
                     onChange={(e) => setForm((prev) => ({ ...prev, marketingOptIn: e.target.checked }))}
-                    className="rounded border-slate-300 accent-[#7c3aed]"
+                    className="rounded border-[var(--key-border)] accent-[var(--key-accent,#a855f7)]"
                   />
                   <span className="font-semibold">
                     Marketing opt-in (email / WhatsApp updates)
@@ -643,7 +643,7 @@ export default function ContactsScreen({
               </div>
 
               {formError && (
-                <p className="text-xs font-medium text-rose-600" role="alert">
+                <p className="text-xs font-medium text-rose-400" role="alert">
                   {formError}
                 </p>
               )}
@@ -651,7 +651,7 @@ export default function ContactsScreen({
               <button
                 type="submit"
                 disabled={isSaving}
-                className="w-full bg-[#7c3aed] hover:bg-[#6d28d9] disabled:cursor-not-allowed disabled:opacity-70 text-white font-bold py-2.5 rounded-xl text-xs shadow-md shadow-violet-500/25 transition-colors"
+                className="w-full key-btn-accent disabled:cursor-not-allowed disabled:opacity-70 font-bold py-2.5 rounded-xl text-xs shadow-md transition-colors"
               >
                 {isSaving ? "Saving…" : editingContact ? "Save Changes" : "Save Lead"}
               </button>
@@ -660,7 +660,7 @@ export default function ContactsScreen({
                 type="button"
                 onClick={closeModal}
                 disabled={isSaving}
-                className="w-full px-4 py-2 text-xs font-semibold text-slate-500 hover:bg-slate-50 rounded-xl disabled:opacity-60"
+                className="w-full px-4 py-2 text-xs font-semibold text-[var(--key-muted)] hover:bg-[var(--key-surface)] rounded-xl disabled:opacity-60 transition-colors"
               >
                 Cancel
               </button>
@@ -679,17 +679,17 @@ export default function ContactsScreen({
       </div>
 
       <SectionCard className="key-contacts-panel flex flex-col overflow-hidden" data-aos="fade-up">
-        <Workspace className="key-contacts-toolbar border-b border-slate-100 flex flex-col gap-3">
+        <Workspace className="key-contacts-toolbar border-b border-[var(--key-border)] flex flex-col gap-3">
           <div className="key-icon-field w-full">
             <span className="key-icon-field__icon">
-              <Search className="h-4 w-4" />
+              <Search className="h-4 w-4 text-[var(--key-muted)]" />
             </span>
             <input
               type="search"
               placeholder="Search by name, email, phone, domain, or tag..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="key-icon-field__input w-full bg-slate-50 border border-slate-100 rounded-xl py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:bg-white transition-all"
+              className="key-icon-field__input w-full bg-[var(--key-input-bg)] border border-[var(--key-border)] rounded-xl py-2 text-sm text-[var(--key-text)] placeholder-[var(--key-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--key-border-strong)] focus:bg-[var(--key-input-focus-bg)] transition-all"
               aria-label="Search contacts"
             />
           </div>
@@ -699,32 +699,32 @@ export default function ContactsScreen({
               <select
                 value={sourceFilter}
                 onChange={(e) => setSourceFilter(e.target.value)}
-                className="w-full bg-white border border-gray-200 text-gray-700 px-4 py-2.5 rounded-xl text-sm font-medium focus:outline-none appearance-none pr-8 cursor-pointer shadow-sm hover:bg-gray-50"
+                className="w-full bg-[var(--key-input-bg)] border border-[var(--key-border)] text-[var(--key-text)] px-4 py-2.5 rounded-xl text-sm font-medium focus:outline-none appearance-none pr-8 cursor-pointer shadow-sm hover:border-[var(--key-border-strong)] transition-colors"
                 aria-label="Filter by source"
               >
                 {sourceOptions.map((source) => (
-                  <option key={source} value={source}>
+                  <option key={source} value={source} className="bg-[#131027] text-[#faf5ff]">
                     {source}
                   </option>
                 ))}
               </select>
-              <ChevronDown className="absolute right-3 top-3.5 h-4 w-4 text-gray-400 pointer-events-none" />
+              <ChevronDown className="absolute right-3 top-3.5 h-4 w-4 text-[var(--key-muted)] pointer-events-none" />
             </div>
 
             <div className="relative flex-1 min-w-0">
               <select
                 value={tagFilter}
                 onChange={(e) => setTagFilter(e.target.value)}
-                className="w-full bg-white border border-gray-200 text-gray-700 px-4 py-2.5 rounded-xl text-sm font-medium focus:outline-none appearance-none pr-8 cursor-pointer shadow-sm hover:bg-gray-50"
+                className="w-full bg-[var(--key-input-bg)] border border-[var(--key-border)] text-[var(--key-text)] px-4 py-2.5 rounded-xl text-sm font-medium focus:outline-none appearance-none pr-8 cursor-pointer shadow-sm hover:border-[var(--key-border-strong)] transition-colors"
                 aria-label="Filter by tag"
               >
                 {tagOptions.map((tag) => (
-                  <option key={tag} value={tag}>
+                  <option key={tag} value={tag} className="bg-[#131027] text-[#faf5ff]">
                     {tag}
                   </option>
                 ))}
               </select>
-              <ChevronDown className="absolute right-3 top-3.5 h-4 w-4 text-gray-400 pointer-events-none" />
+              <ChevronDown className="absolute right-3 top-3.5 h-4 w-4 text-[var(--key-muted)] pointer-events-none" />
             </div>
 
             {contacts.length > 0 ? (
@@ -732,22 +732,22 @@ export default function ContactsScreen({
                 <button
                   type="button"
                   onClick={openDeleteMenu}
-                  className={`inline-flex w-full sm:w-auto items-center justify-center gap-2 border rounded-xl px-3.5 py-2.5 text-sm font-semibold shadow-sm ${
+                  className={`inline-flex w-full sm:w-auto items-center justify-center gap-2 border rounded-xl px-3.5 py-2.5 text-sm font-semibold shadow-sm transition-colors ${
                     selectionMode
-                      ? "border-rose-200 bg-rose-50 text-rose-700"
-                      : "border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
+                      ? "border-rose-500/30 bg-rose-500/10 text-rose-400"
+                      : "border-[var(--key-border)] bg-[var(--key-surface)] text-[var(--key-text)] hover:bg-[var(--key-btn-secondary-hover-bg,rgba(255,255,255,0.08))]"
                   }`}
                   aria-haspopup="menu"
                   aria-expanded={bulkMenuOpen}
                 >
-                  <Trash2 className="h-4 w-4 text-rose-500" />
+                  <Trash2 className="h-4 w-4 text-rose-400" />
                   <span>Delete</span>
-                  <ChevronDown className="h-3.5 w-3.5 text-gray-400" />
+                  <ChevronDown className="h-3.5 w-3.5 text-[var(--key-muted)]" />
                 </button>
                 {bulkMenuOpen && (
                   <div
                     role="menu"
-                    className="key-contacts-bulk-menu absolute right-0 mt-1.5 z-20 min-w-[14rem] rounded-xl border border-slate-200 bg-white py-1 shadow-xl"
+                    className="key-contacts-bulk-menu absolute right-0 mt-1.5 z-20 min-w-[14rem] rounded-xl border border-[var(--key-border)] bg-[var(--key-surface-strong,#1a1635)] py-1 shadow-xl"
                   >
                     <button
                       type="button"
@@ -795,7 +795,7 @@ export default function ContactsScreen({
               <button
                 type="button"
                 onClick={clearFilters}
-                className="sm:w-auto w-full shrink-0 px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-600 border border-slate-200 hover:bg-slate-50"
+                className="sm:w-auto w-full shrink-0 px-4 py-2.5 rounded-xl text-sm font-semibold text-[var(--key-text)] border border-[var(--key-border)] bg-[var(--key-surface)] hover:bg-[var(--key-btn-secondary-hover-bg,rgba(255,255,255,0.08))] transition-colors"
               >
                 Clear filters
               </button>
@@ -805,7 +805,7 @@ export default function ContactsScreen({
           {contacts.length > 0 && (
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               {selectionMode ? (
-                <label className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 cursor-pointer select-none">
+                <label className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--key-text)] cursor-pointer select-none">
                   <input
                     type="checkbox"
                     checked={allFilteredSelected}
@@ -825,7 +825,7 @@ export default function ContactsScreen({
               ) : (
                 <span />
               )}
-              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--key-muted)]">
                 {filteredContacts.length} record{filteredContacts.length === 1 ? "" : "s"}
                 {hasActiveFilters ? " matched" : ""}
               </p>
@@ -836,17 +836,17 @@ export default function ContactsScreen({
         {contacts.length === 0 ? (
           <Workspace>
             <div className="py-14 text-center">
-              <div className="mx-auto mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-50 text-[#4F46E5]">
+              <div className="mx-auto mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--key-surface-strong)] text-[var(--key-accent-3,#c084fc)] border border-[var(--key-border)]">
                 <Users className="h-5 w-5" />
               </div>
-              <p className="font-display font-bold text-gray-900">No contacts yet</p>
-              <p className="text-gray-500 text-sm mt-1 max-w-sm mx-auto">
+              <p className="font-display font-bold text-[var(--key-text)]">No contacts yet</p>
+              <p className="text-[var(--key-muted)] text-sm mt-1 max-w-sm mx-auto">
                 Add your first lead manually, or capture contacts when public visitors submit Form / Smart Form blocks on your Bio Pages.
               </p>
               <button
                 type="button"
                 onClick={openCreateModal}
-                className="mt-4 inline-flex items-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white rounded-xl px-4 py-2.5 text-sm font-semibold"
+                className="mt-4 key-btn-accent inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold shadow-md"
               >
                 <Plus className="h-4 w-4" />
                 Add Contact
@@ -855,12 +855,12 @@ export default function ContactsScreen({
           </Workspace>
         ) : filteredContacts.length === 0 ? (
           <Workspace>
-            <div className="py-12 text-center text-gray-400 text-sm space-y-3">
+            <div className="py-12 text-center text-[var(--key-muted)] text-sm space-y-3">
               <p>No contacts match the selected filters.</p>
               <button
                 type="button"
                 onClick={clearFilters}
-                className="text-[#4F46E5] font-semibold hover:underline"
+                className="text-[var(--key-accent-3,#c084fc)] font-semibold hover:underline"
               >
                 Clear filters
               </button>
@@ -868,7 +868,7 @@ export default function ContactsScreen({
           </Workspace>
         ) : (
           <Workspace className="key-contacts-workspace !p-0 sm:!p-0">
-            <div className="lg:hidden divide-y divide-slate-100">
+            <div className="lg:hidden divide-y divide-[var(--key-border)]">
               {filteredContacts.map((contact) => {
                 const tags = visibleTags(contact);
                 const isSelected = selectedIds.includes(contact.id);
@@ -893,13 +893,13 @@ export default function ContactsScreen({
                       <div className="min-w-0 flex-1">
                         <div className="flex items-start justify-between gap-2">
                           <div className="min-w-0">
-                            <p className="font-display font-semibold text-slate-900 text-sm truncate">
+                            <p className="font-display font-semibold text-[var(--key-text)] text-sm truncate">
                               {contact.name}
                             </p>
-                            <p className="text-xs text-slate-500 font-mono mt-0.5 truncate">
+                            <p className="text-xs text-[var(--key-muted)] font-mono mt-0.5 truncate">
                               {contact.email}
                             </p>
-                            <p className="text-xs text-slate-500 font-mono truncate">
+                            <p className="text-xs text-[var(--key-muted)] font-mono truncate">
                               {contact.phone}
                             </p>
                           </div>
@@ -1151,16 +1151,16 @@ export default function ContactsScreen({
                   {contactInitials(detailContact.name)}
                 </div>
                 <div className="min-w-0">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-indigo-500">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--key-accent-3,#c084fc)]">
                     Form submission sheet
                   </p>
                   <h3
                     id="contact-detail-title"
-                    className="font-display text-xl font-black text-slate-900 truncate"
+                    className="font-display text-xl font-black text-[var(--key-text)] truncate"
                   >
                     {detailContact.name}
                   </h3>
-                  <p className="mt-1 text-sm text-slate-500 font-mono truncate">{detailContact.email}</p>
+                  <p className="mt-1 text-sm text-[var(--key-muted)] font-mono truncate">{detailContact.email}</p>
                 </div>
               </div>
               <button
@@ -1224,7 +1224,7 @@ export default function ContactsScreen({
               <button
                 type="button"
                 onClick={() => setDetailContact(null)}
-                className="rounded-xl px-4 py-2.5 text-sm font-bold text-slate-500 hover:bg-slate-50"
+                className="rounded-xl px-4 py-2.5 text-sm font-bold text-[var(--key-muted)] hover:bg-[var(--key-surface)] hover:text-[var(--key-text)] transition-colors"
               >
                 Close
               </button>
@@ -1235,7 +1235,7 @@ export default function ContactsScreen({
                   setDetailContact(null);
                   openEditModal(contact);
                 }}
-                className="inline-flex items-center gap-2 rounded-xl bg-[#4F46E5] px-4 py-2.5 text-sm font-bold text-white hover:bg-[#4338CA]"
+                className="key-btn-accent inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold shadow-md transition-all active:scale-95"
               >
                 <Pencil className="h-4 w-4" />
                 Edit contact
