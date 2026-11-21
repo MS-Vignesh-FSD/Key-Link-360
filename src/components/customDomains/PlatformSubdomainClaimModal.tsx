@@ -111,50 +111,50 @@ export default function PlatformSubdomainClaimModal({
       <div className="key-domain-remove-dialog animate-in fade-in zoom-in-95 duration-200 max-w-md w-full" role="dialog" aria-modal="true">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-indigo-600">Free KEY address</p>
-            <h3 className="mt-1 text-lg font-bold text-slate-950">Claim a clean URL</h3>
-            <p className="mt-2 text-sm text-slate-600">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-indigo-400">Free KEY address</p>
+            <h3 className="mt-1 text-lg font-bold text-slate-100">Claim a clean URL</h3>
+            <p className="mt-2 text-sm text-slate-300">
               Replace the long <code>?previewPageId=</code> link with a short address like{" "}
-              <strong>yourname.{platformSubdomainBase()}</strong> for <strong>{page.title}</strong>.
+              <strong className="text-white">yourname.{platformSubdomainBase()}</strong> for <strong className="text-white">{page.title}</strong>.
             </p>
           </div>
-          <button type="button" onClick={onClose} className="rounded-lg p-1 text-slate-400 hover:bg-slate-100" aria-label="Close">
+          <button type="button" onClick={onClose} className="rounded-lg p-1 text-slate-400 hover:text-white hover:bg-white/10" aria-label="Close">
             <X className="h-5 w-5" />
           </button>
         </div>
 
-        <label className="mt-5 block text-xs font-semibold text-slate-700" htmlFor="platform-slug">
+        <label className="mt-5 block text-xs font-semibold text-slate-200" htmlFor="platform-slug">
           Choose your name
         </label>
-        <div className="mt-2 flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2">
+        <div className="mt-2 flex items-center gap-2 rounded-xl border border-white/10 bg-black/30 px-3 py-2 focus-within:border-indigo-500">
           <input
             id="platform-slug"
             value={slug}
             onChange={(event) => setSlug(event.target.value)}
-            className="min-w-0 flex-1 bg-transparent text-sm outline-none"
+            className="min-w-0 flex-1 bg-transparent text-sm text-white placeholder-slate-500 outline-none"
             placeholder="keysfashion"
             autoFocus
           />
-          <span className="shrink-0 text-xs text-slate-500">.{platformSubdomainBase()}</span>
+          <span className="shrink-0 text-xs text-slate-400">.{platformSubdomainBase()}</span>
         </div>
 
-        <p className="mt-2 text-xs text-slate-500">
-          Live preview: <span className="font-mono text-indigo-700">{hostnamePreview}</span>
-          {checking && <Loader2 className="ml-1 inline h-3 w-3 animate-spin" />}
-          {!checking && available === true && <span className="ml-2 text-emerald-600">Available</span>}
+        <p className="mt-2 text-xs text-slate-400">
+          Live preview: <span className="font-mono text-indigo-400 font-bold">{hostnamePreview}</span>
+          {checking && <Loader2 className="ml-1 inline h-3 w-3 animate-spin text-indigo-400" />}
+          {!checking && available === true && <span className="ml-2 text-emerald-400 font-semibold">Available</span>}
         </p>
 
-        {error && <p className="mt-3 text-sm text-rose-600">{error}</p>}
+        {error && <p className="mt-3 text-sm text-rose-400">{error}</p>}
 
         <div className="mt-6 flex gap-3">
-          <button type="button" onClick={onClose} className="key-domain-remove-dialog__cancel flex-1">
+          <button type="button" onClick={onClose} className="key-domain-remove-dialog__cancel flex-1 cursor-pointer">
             Cancel
           </button>
           <button
             type="button"
             disabled={submitting || checking || available === false || !slug.trim()}
             onClick={() => void submit()}
-            className="key-domain-wizard__primary flex-1 inline-flex items-center justify-center gap-2"
+            className="key-domain-wizard__primary flex-1 inline-flex items-center justify-center gap-2 cursor-pointer"
           >
             {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : <Sparkles className="h-4 w-4" />}
             Claim address

@@ -110,8 +110,8 @@ function isAllowedOrigin(candidate: string, req?: Request): boolean {
     // Local development: allow localhost / 127.0.0.1 on any port
     if (url.hostname === "localhost" || url.hostname === "127.0.0.1") return true;
 
-    // Production Railway deployments & up.railway.app domains
-    if (url.hostname.endsWith(".railway.app") || url.hostname.endsWith(".up.railway.app")) return true;
+    // Production deployments & onrender.com domains
+    if (url.hostname.endsWith(".onrender.com")) return true;
 
     if (process.env.NODE_ENV === "production") return false;
     return true;

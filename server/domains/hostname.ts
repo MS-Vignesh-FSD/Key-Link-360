@@ -1,4 +1,4 @@
-/** Default A record target for KEYLINK360 on Railway (override with CUSTOM_DOMAIN_A_TARGET). */
+/** Default A record target for KEYLINK360 (override with CUSTOM_DOMAIN_A_TARGET). */
 export const DEFAULT_CUSTOM_DOMAIN_A_TARGET = "69.46.46.90";
 
 /** Lovable/Vercel demo IP — must never be shown to KEYLINK360 customers. */
@@ -84,21 +84,27 @@ export function getWwwCompanionHostname(apexHostname: string): string | null {
 export function resolveCnameTarget(): string {
   const explicit = process.env.CUSTOM_DOMAIN_CNAME_TARGET?.trim();
   if (explicit) {
-    return explicit.replace(/^https?:\/\//, "").split("/")[0];
+    const cleaned = explicit.replace(/^https?:\/\//, "").split("/")[0].toLowerCase();
+    if (!cleaned.includes("railway")) return cleaned;
   }
 
-  const candidates = [process.env.API_URL, process.env.APP_URL].filter(Boolean);
+  const candidates = [
+    process.env.APP_URL,
+    process.env.API_URL,
+    process.env.RENDER_EXTERNAL_HOSTNAME,
+    process.env.RENDER_EXTERNAL_URL
+  ].filter(Boolean);
   for (const raw of candidates) {
     try {
       const hostname = new URL(raw!.includes("://") ? raw! : `https://${raw}`).hostname.toLowerCase();
-      if (hostname && hostname !== "localhost" && !hostname.startsWith("127.")) {
+      if (hostname && hostname !== "localhost" && !hostname.startsWith("127.") && !hostname.includes("railway")) {
         return hostname;
       }
     } catch {
       /* ignore */
     }
   }
-  return "keylink360.mindflo.today";
+  return "key-link-360.onrender.com";
 }
 
 export function resolvePlatformHostname(): string {

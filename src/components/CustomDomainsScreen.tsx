@@ -415,8 +415,8 @@ export default function CustomDomainsScreen({
             <span className="block">
               Connect a root domain or subdomain so visitors open your bio page on your brand address.
             </span>
-            <span className="mt-2 block text-sm text-slate-600">
-              <span className="font-semibold text-slate-800">Add existing domain</span>
+            <span className="mt-2 block text-sm text-[var(--key-muted,#c4b5fd)]">
+              <span className="font-semibold text-[var(--key-text,#ffffff)]">Add existing domain</span>
               {" — "}
               Connect a website address you already own.
             </span>
@@ -836,7 +836,7 @@ export default function CustomDomainsScreen({
           <HowItWorksDialog
             open={howItWorksOpen}
             onClose={() => setHowItWorksOpen(false)}
-            cnameTarget={platformConfig?.cnameTarget || platformConfig?.platformUrl || "keylink360.in"}
+            cnameTarget={platformConfig?.cnameTarget || platformConfig?.platformUrl || "key-link-360.onrender.com"}
             aRecordTarget={platformConfig?.aRecordTarget || "69.46.46.98"}
           />,
           document.body

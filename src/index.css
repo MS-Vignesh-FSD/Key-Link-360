@@ -26363,3 +26363,541 @@ body.key-editor-open header.key-glass-header {
 
 }
 
+
+
+/* ========================================================================= */
+/* UNIFIED CUSTOM DOMAIN WIZARD & DIALOG THEME SYSTEM                        */
+/* Ensures Connect Domain modal strictly matches active Personalization Theme*/
+/* ========================================================================= */
+
+/* 1. UNIVERSAL THEME ADAPTATION VIA CSS VARIABLES */
+.key-domain-wizard,
+.key-domain-remove-dialog,
+.key-how-works-dialog,
+.key-cf-info-dialog {
+  background: var(--key-surface-strong, #131027) !important;
+  border: 1px solid var(--key-border-strong, rgba(168, 85, 247, 0.25)) !important;
+  color: var(--key-text, #faf5ff) !important;
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.75), 0 0 24px -4px var(--key-accent, rgba(168, 85, 247, 0.25)) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+.key-domain-wizard__header,
+.key-how-works-dialog__header {
+  border-bottom: 1px solid var(--key-border, rgba(255, 255, 255, 0.08)) !important;
+}
+
+.key-domain-wizard__title,
+.key-domain-remove-dialog h3,
+.key-how-works-dialog__header h3 {
+  color: var(--key-text, #faf5ff) !important;
+  font-weight: 800 !important;
+}
+
+.key-domain-wizard__lead,
+.key-domain-remove-dialog p,
+.key-how-works-dialog__header p {
+  color: var(--key-muted, #c4b5fd) !important;
+}
+
+.key-domain-wizard__label {
+  color: var(--key-text, #faf5ff) !important;
+  font-weight: 700 !important;
+}
+
+.key-domain-wizard__back,
+.key-domain-wizard__close,
+.key-how-works-dialog__close {
+  color: var(--key-muted, #c4b5fd) !important;
+  border-radius: 0.65rem !important;
+  transition: all 0.2s ease !important;
+}
+
+.key-domain-wizard__back:hover,
+.key-domain-wizard__close:hover,
+.key-how-works-dialog__close:hover {
+  background: var(--key-surface, rgba(255, 255, 255, 0.08)) !important;
+  color: var(--key-text, #ffffff) !important;
+}
+
+/* Progress dots */
+.key-domain-wizard__dot {
+  background: var(--key-border, rgba(255, 255, 255, 0.15)) !important;
+  transition: all 0.2s ease !important;
+}
+
+.key-domain-wizard__dot.is-active {
+  background: var(--key-border-strong, rgba(168, 85, 247, 0.5)) !important;
+}
+
+.key-domain-wizard__dot.is-current {
+  background: var(--key-accent, #a855f7) !important;
+  box-shadow: 0 0 10px var(--key-accent, rgba(168, 85, 247, 0.7)) !important;
+  transform: scale(1.25) !important;
+}
+
+/* Inputs */
+.key-domain-wizard__input,
+.key-domain-wizard__provider-input {
+  background: var(--key-bg-deep, #0c0a1a) !important;
+  border: 1px solid var(--key-border, rgba(168, 85, 247, 0.25)) !important;
+  color: var(--key-text, #faf5ff) !important;
+  border-radius: 0.75rem !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.key-domain-wizard__input:focus,
+.key-domain-wizard__provider-input:focus {
+  border-color: var(--key-accent, #a855f7) !important;
+  box-shadow: 0 0 0 3px var(--key-border-strong, rgba(168, 85, 247, 0.25)) !important;
+  outline: none !important;
+}
+
+/* Provider Cards (Cloudflare, Manual, etc.) */
+.key-provider-card {
+  background: var(--key-surface, rgba(26, 22, 53, 0.8)) !important;
+  border: 1.5px solid var(--key-border, rgba(168, 85, 247, 0.2)) !important;
+  color: var(--key-text, #faf5ff) !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.25) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.key-provider-card:hover {
+  background: var(--key-surface-strong, rgba(38, 30, 78, 0.95)) !important;
+  border-color: var(--key-accent, #a855f7) !important;
+  box-shadow: 0 4px 20px -2px var(--key-accent, rgba(168, 85, 247, 0.4)) !important;
+  transform: translateY(-2px) !important;
+}
+
+.key-provider-card.is-selected {
+  background: var(--key-surface-strong, rgba(38, 30, 78, 0.98)) !important;
+  border-color: var(--key-accent, #a855f7) !important;
+  box-shadow: 0 0 22px -2px var(--key-accent, rgba(168, 85, 247, 0.45)) !important;
+}
+
+.key-provider-card__title,
+.key-domain-wizard__provider-title {
+  color: var(--key-text, #faf5ff) !important;
+  font-weight: 700 !important;
+}
+
+.key-provider-card__blurb,
+.key-domain-wizard__provider-lead {
+  color: var(--key-muted, #c4b5fd) !important;
+}
+
+.key-provider-card__logo-wrap {
+  background: var(--key-bg-deep, #0c0a1a) !important;
+  border: 1px solid var(--key-border, rgba(168, 85, 247, 0.25)) !important;
+  border-radius: 0.75rem !important;
+}
+
+/* Page Picker Dropdown */
+.key-domain-wizard .key-page-picker__trigger {
+  background: var(--key-bg-deep, #0c0a1a) !important;
+  border: 1px solid var(--key-border, rgba(168, 85, 247, 0.25)) !important;
+  color: var(--key-text, #faf5ff) !important;
+  border-radius: 0.75rem !important;
+}
+
+.key-domain-wizard .key-page-picker__menu {
+  background: var(--key-surface-strong, #1a1635) !important;
+  border: 1px solid var(--key-border-strong, rgba(168, 85, 247, 0.35)) !important;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.65) !important;
+  color: var(--key-text, #faf5ff) !important;
+  border-radius: 0.85rem !important;
+}
+
+.key-domain-wizard .key-page-picker__footer {
+  border-top: 1px solid var(--key-border, rgba(255, 255, 255, 0.08)) !important;
+}
+
+/* DNS Copy Table */
+.key-domain-wizard__dns-table {
+  background: var(--key-bg-deep, #0c0a1a) !important;
+  border: 1px solid var(--key-border, rgba(168, 85, 247, 0.22)) !important;
+  border-radius: 0.95rem !important;
+  overflow: hidden !important;
+}
+
+.key-domain-wizard__dns-head {
+  background: var(--key-surface, rgba(26, 22, 53, 0.95)) !important;
+  color: var(--key-muted, #c4b5fd) !important;
+  border-bottom: 1px solid var(--key-border, rgba(168, 85, 247, 0.2)) !important;
+}
+
+.key-domain-wizard__dns-row {
+  color: var(--key-text, #faf5ff) !important;
+}
+
+.key-domain-wizard__dns-row + .key-domain-wizard__dns-row {
+  border-top: 1px solid var(--key-border, rgba(168, 85, 247, 0.16)) !important;
+}
+
+.key-dns-copy-field__value {
+  background: var(--key-bg-deep, #080612) !important;
+  border: 1px solid var(--key-border, rgba(168, 85, 247, 0.25)) !important;
+  color: var(--key-text, #faf5ff) !important;
+  border-radius: 0.5rem !important;
+  font-family: ui-monospace, monospace !important;
+}
+
+.key-domain-wizard__copy {
+  background: var(--key-surface-strong, rgba(168, 85, 247, 0.18)) !important;
+  border: 1px solid var(--key-border, rgba(168, 85, 247, 0.3)) !important;
+  color: var(--key-text, #faf5ff) !important;
+  border-radius: 0.5rem !important;
+  font-weight: 700 !important;
+  transition: all 0.2s ease !important;
+}
+
+.key-domain-wizard__copy:hover {
+  background: var(--key-accent, #a855f7) !important;
+  border-color: var(--key-accent, #a855f7) !important;
+  color: #ffffff !important;
+}
+
+.key-domain-wizard__copy.is-copied {
+  background: #10b981 !important;
+  border-color: #10b981 !important;
+  color: #ffffff !important;
+}
+
+/* Primary Action Buttons */
+.key-domain-wizard__primary {
+  background: linear-gradient(135deg, var(--key-accent, #6366f1), var(--key-accent-2, #4f46e5)) !important;
+  border: 1px solid var(--key-border-strong, rgba(255, 255, 255, 0.2)) !important;
+  color: #ffffff !important;
+  border-radius: 0.75rem !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 16px -2px var(--key-accent, rgba(99, 102, 241, 0.45)) !important;
+  transition: all 0.2s ease !important;
+}
+
+.key-domain-wizard__primary:hover:not(:disabled) {
+  opacity: 0.95 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 22px -2px var(--key-accent, rgba(99, 102, 241, 0.6)) !important;
+}
+
+/* Dialog Cancel Button */
+.key-domain-remove-dialog__cancel {
+  background: var(--key-surface, rgba(255, 255, 255, 0.05)) !important;
+  border: 1px solid var(--key-border, rgba(255, 255, 255, 0.15)) !important;
+  color: var(--key-text, #faf5ff) !important;
+  border-radius: 0.75rem !important;
+  transition: all 0.2s ease !important;
+}
+
+.key-domain-remove-dialog__cancel:hover {
+  background: var(--key-surface-strong, rgba(255, 255, 255, 0.12)) !important;
+  color: #ffffff !important;
+}
+
+/* How It Works Dialog Steps & Rules */
+.key-how-works-dialog__body h4 {
+  color: var(--key-accent, #a855f7) !important;
+  font-weight: 800 !important;
+}
+
+.key-how-works-dialog__steps li {
+  background: var(--key-surface, rgba(26, 22, 53, 0.65)) !important;
+  border: 1px solid var(--key-border, rgba(168, 85, 247, 0.18)) !important;
+  border-radius: 0.85rem !important;
+}
+
+.key-how-works-dialog__steps strong {
+  color: var(--key-text, #faf5ff) !important;
+}
+
+.key-how-works-dialog__steps p {
+  color: var(--key-muted, #c4b5fd) !important;
+}
+
+.key-how-works-dialog__steps li > span:first-child {
+  background: var(--key-accent, #a855f7) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 10px var(--key-accent, rgba(168, 85, 247, 0.5)) !important;
+}
+
+.key-how-works-dialog__rules {
+  background: var(--key-bg-deep, #0c0a1a) !important;
+  border: 1px solid var(--key-border, rgba(168, 85, 247, 0.2)) !important;
+  border-radius: 0.85rem !important;
+  color: var(--key-muted, #c4b5fd) !important;
+}
+
+.key-how-works-dialog__rules strong {
+  color: var(--key-text, #faf5ff) !important;
+}
+
+/* ========================================================================= */
+/* 2. SPECIFIC THEME OVERRIDES FOR CUSTOM DOMAIN WIZARD                      */
+/* ========================================================================= */
+
+/* --- AURORA INDIGO (SYNTHWAVE) --- */
+.key-theme-synthwave .key-domain-wizard,
+.key-theme-synthwave .key-domain-remove-dialog,
+.key-theme-synthwave .key-how-works-dialog {
+  background: #140e2b !important;
+  border: 1px solid rgba(168, 85, 247, 0.28) !important;
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.75), 0 0 24px -4px rgba(168, 85, 247, 0.25) !important;
+}
+.key-theme-synthwave .key-provider-card {
+  background: #1d163d !important;
+  border: 1.5px solid rgba(168, 85, 247, 0.22) !important;
+}
+.key-theme-synthwave .key-provider-card:hover {
+  background: #271e52 !important;
+  border-color: #a855f7 !important;
+  box-shadow: 0 4px 20px -2px rgba(168, 85, 247, 0.4) !important;
+}
+.key-theme-synthwave .key-provider-card.is-selected {
+  background: #2c225c !important;
+  border-color: #a855f7 !important;
+  box-shadow: 0 0 22px -2px rgba(168, 85, 247, 0.45) !important;
+}
+.key-theme-synthwave .key-domain-wizard__input,
+.key-theme-synthwave .key-domain-wizard__provider-input,
+.key-theme-synthwave .key-domain-wizard .key-page-picker__trigger {
+  background: #0c0a1a !important;
+  border-color: rgba(168, 85, 247, 0.25) !important;
+  color: #faf5ff !important;
+}
+.key-theme-synthwave .key-domain-wizard__dns-table {
+  background: #0c0a1a !important;
+  border-color: rgba(168, 85, 247, 0.22) !important;
+}
+.key-theme-synthwave .key-domain-wizard__dns-head {
+  background: #181236 !important;
+  color: #c4b5fd !important;
+}
+.key-theme-synthwave .key-dns-copy-field__value {
+  background: #080612 !important;
+  border-color: rgba(168, 85, 247, 0.25) !important;
+  color: #faf5ff !important;
+}
+.key-theme-synthwave .key-domain-wizard__copy {
+  background: #271e52 !important;
+  border-color: rgba(168, 85, 247, 0.35) !important;
+  color: #faf5ff !important;
+}
+.key-theme-synthwave .key-domain-wizard__primary {
+  background: linear-gradient(135deg, #9333ea, #a855f7) !important;
+}
+
+/* --- MATRIX EMERALD --- */
+.key-theme-matrix .key-domain-wizard,
+.key-theme-matrix .key-domain-remove-dialog,
+.key-theme-matrix .key-how-works-dialog {
+  background: #08160f !important;
+  border: 1px solid rgba(16, 185, 129, 0.28) !important;
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.75), 0 0 24px -4px rgba(16, 185, 129, 0.25) !important;
+}
+.key-theme-matrix .key-provider-card {
+  background: #0d2419 !important;
+  border: 1.5px solid rgba(16, 185, 129, 0.22) !important;
+}
+.key-theme-matrix .key-provider-card:hover {
+  background: #133525 !important;
+  border-color: #10b981 !important;
+  box-shadow: 0 4px 20px -2px rgba(16, 185, 129, 0.4) !important;
+}
+.key-theme-matrix .key-domain-wizard__input,
+.key-theme-matrix .key-domain-wizard__provider-input,
+.key-theme-matrix .key-domain-wizard .key-page-picker__trigger {
+  background: #040f0a !important;
+  border-color: rgba(16, 185, 129, 0.25) !important;
+  color: #f0fdf4 !important;
+}
+.key-theme-matrix .key-domain-wizard__dns-table {
+  background: #040f0a !important;
+  border-color: rgba(16, 185, 129, 0.22) !important;
+}
+.key-theme-matrix .key-domain-wizard__primary {
+  background: linear-gradient(135deg, #059669, #10b981) !important;
+}
+
+/* --- LUXURY GOLD --- */
+.key-theme-luxury .key-domain-wizard,
+.key-theme-luxury .key-domain-remove-dialog,
+.key-theme-luxury .key-how-works-dialog {
+  background: #0b0b0e !important;
+  border: 1px solid rgba(212, 175, 55, 0.28) !important;
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.75), 0 0 24px -4px rgba(212, 175, 55, 0.25) !important;
+}
+.key-theme-luxury .key-provider-card {
+  background: #15151a !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.22) !important;
+}
+.key-theme-luxury .key-provider-card:hover {
+  background: #202028 !important;
+  border-color: #d97706 !important;
+  box-shadow: 0 4px 20px -2px rgba(212, 175, 55, 0.4) !important;
+}
+.key-theme-luxury .key-domain-wizard__input,
+.key-theme-luxury .key-domain-wizard__provider-input,
+.key-theme-luxury .key-domain-wizard .key-page-picker__trigger {
+  background: #070709 !important;
+  border-color: rgba(212, 175, 55, 0.25) !important;
+  color: #fafafa !important;
+}
+.key-theme-luxury .key-domain-wizard__primary {
+  background: linear-gradient(135deg, #d97706, #f59e0b) !important;
+}
+
+/* --- CYBERPUNK AZURE --- */
+.key-theme-cyberpunk .key-domain-wizard,
+.key-theme-cyberpunk .key-domain-remove-dialog,
+.key-theme-cyberpunk .key-how-works-dialog {
+  background: #0c1527 !important;
+  border: 1px solid rgba(56, 189, 248, 0.28) !important;
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.75), 0 0 24px -4px rgba(56, 189, 248, 0.25) !important;
+}
+.key-theme-cyberpunk .key-provider-card {
+  background: #122038 !important;
+  border: 1.5px solid rgba(56, 189, 248, 0.22) !important;
+}
+.key-theme-cyberpunk .key-provider-card:hover {
+  background: #182b4c !important;
+  border-color: #0284c7 !important;
+  box-shadow: 0 4px 20px -2px rgba(56, 189, 248, 0.4) !important;
+}
+.key-theme-cyberpunk .key-domain-wizard__input,
+.key-theme-cyberpunk .key-domain-wizard__provider-input,
+.key-theme-cyberpunk .key-domain-wizard .key-page-picker__trigger {
+  background: #070c17 !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+  color: #f8fafc !important;
+}
+.key-theme-cyberpunk .key-domain-wizard__primary {
+  background: linear-gradient(135deg, #0284c7, #38bdf8) !important;
+}
+
+/* --- DARK MODE & EYE COMFORT --- */
+.key-theme-dark .key-domain-wizard,
+.key-theme-dark .key-domain-remove-dialog,
+.key-theme-dark .key-how-works-dialog,
+.key-theme-eyevision .key-domain-wizard,
+.key-theme-eyevision .key-domain-remove-dialog,
+.key-theme-eyevision .key-how-works-dialog {
+  background: #0e1424 !important;
+  border: 1px solid rgba(99, 102, 241, 0.28) !important;
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.75), 0 0 24px -4px rgba(99, 102, 241, 0.25) !important;
+}
+.key-theme-dark .key-provider-card,
+.key-theme-eyevision .key-provider-card {
+  background: #141c33 !important;
+  border: 1.5px solid rgba(99, 102, 241, 0.22) !important;
+}
+.key-theme-dark .key-provider-card:hover,
+.key-theme-eyevision .key-provider-card:hover {
+  background: #1c2645 !important;
+  border-color: #6366f1 !important;
+  box-shadow: 0 4px 20px -2px rgba(99, 102, 241, 0.4) !important;
+}
+.key-theme-dark .key-domain-wizard__input,
+.key-theme-dark .key-domain-wizard__provider-input,
+.key-theme-dark .key-domain-wizard .key-page-picker__trigger,
+.key-theme-eyevision .key-domain-wizard__input,
+.key-theme-eyevision .key-domain-wizard__provider-input,
+.key-theme-eyevision .key-domain-wizard .key-page-picker__trigger {
+  background: #090d16 !important;
+  border-color: rgba(99, 102, 241, 0.25) !important;
+  color: #f8fafc !important;
+}
+.key-theme-dark .key-domain-wizard__primary,
+.key-theme-eyevision .key-domain-wizard__primary {
+  background: linear-gradient(135deg, #4f46e5, #6366f1) !important;
+}
+
+/* --- CLEAN LIGHT --- */
+.key-theme-light .key-domain-wizard,
+.key-theme-light .key-domain-remove-dialog,
+.key-theme-light .key-how-works-dialog {
+  background: #ffffff !important;
+  border: 1px solid rgba(203, 213, 225, 0.8) !important;
+  color: #0f172a !important;
+  box-shadow: 0 24px 64px rgba(15, 23, 42, 0.12) !important;
+}
+.key-theme-light .key-domain-wizard__title,
+.key-theme-light .key-domain-remove-dialog h3,
+.key-theme-light .key-how-works-dialog__header h3 {
+  color: #0f172a !important;
+}
+.key-theme-light .key-domain-wizard__lead,
+.key-theme-light .key-domain-remove-dialog p,
+.key-theme-light .key-how-works-dialog__header p {
+  color: #64748b !important;
+}
+.key-theme-light .key-domain-wizard__label {
+  color: #334155 !important;
+}
+.key-theme-light .key-provider-card {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+  color: #0f172a !important;
+}
+.key-theme-light .key-provider-card:hover {
+  background: #f1f5f9 !important;
+  border-color: #6366f1 !important;
+}
+.key-theme-light .key-domain-wizard__input,
+.key-theme-light .key-domain-wizard__provider-input,
+.key-theme-light .key-domain-wizard .key-page-picker__trigger {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+.key-theme-light .key-domain-wizard__dns-table {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+.key-theme-light .key-domain-wizard__dns-head {
+  background: #f8fafc !important;
+  color: #64748b !important;
+}
+.key-theme-light .key-dns-copy-field__value {
+  background: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+.key-theme-light .key-domain-wizard__copy {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+.key-theme-light .key-domain-wizard__primary {
+  background: linear-gradient(135deg, #4f46e5, #6366f1) !important;
+}
+
+/* Custom Domains High Contrast Text Guarantee */
+.key-domains-lovable__desc {
+  color: var(--key-text-secondary, #cbd5e1) !important;
+}
+
+.key-custom-domain-guide__intro {
+  color: var(--key-text-secondary, #cbd5e1) !important;
+}
+
+.key-custom-domain-guide__steps li {
+  color: var(--key-text, #f8fafc) !important;
+}
+
+.key-custom-domain-guide__dns {
+  color: var(--key-text-secondary, #cbd5e1) !important;
+}
+
+.key-theme-light .key-domains-lovable__desc,
+.key-theme-light .key-custom-domain-guide__intro,
+.key-theme-light .key-custom-domain-guide__dns {
+  color: #475569 !important;
+}
+
+.key-theme-light .key-custom-domain-guide__steps li {
+  color: #0f172a !important;
+}
+
+

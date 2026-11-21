@@ -35,12 +35,10 @@ export default function CustomDomainSetupGuide({
       {!hasPages && (
         <p className="key-custom-domain-guide__hint">Publish a bio page first, then return here.</p>
       )}
-      {config?.cnameTarget && (
-        <p className="key-custom-domain-guide__dns mt-3">
-          Tip: most people connect a subdomain like <code>name.yourdomain.com</code> pointing to{" "}
-          <code>{config.cnameTarget}</code>.
-        </p>
-      )}
+      <p className="key-custom-domain-guide__dns mt-3">
+        Tip: most people connect a subdomain like <code>name.yourdomain.com</code> pointing to{" "}
+        <code>{config?.cnameTarget && !config.cnameTarget.includes("railway") ? config.cnameTarget : "key-link-360.onrender.com"}</code>.
+      </p>
     </div>
   );
 }

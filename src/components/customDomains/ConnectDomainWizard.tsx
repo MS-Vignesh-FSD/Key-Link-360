@@ -794,7 +794,8 @@ export default function ConnectDomainWizard({
   const dnsZoneDomain = getDnsZoneDomain(activeHostname);
   const domainKind = getCustomDomainKind(activeHostname);
   const activeDot = progressIndex(phase);
-  const cnameTarget = platformConfig?.cnameTarget || "keylink360.in";
+  const rawCname = platformConfig?.cnameTarget || "key-link-360.onrender.com";
+  const cnameTarget = rawCname.includes("railway") ? "key-link-360.onrender.com" : rawCname;
 
   return (
     <div className="key-modal-backdrop key-workflow-modal-backdrop">

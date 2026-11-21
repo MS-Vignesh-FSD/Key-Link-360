@@ -64,7 +64,6 @@ export function isPlatformApexHostname(hostname: string): boolean {
   ) {
     return true;
   }
-  if (host.endsWith(".up.railway.app")) return true;
   if (host.endsWith(".onrender.com")) return true;
   if (host.endsWith(".koyeb.app")) return true;
   return host === platformSubdomainBase();
