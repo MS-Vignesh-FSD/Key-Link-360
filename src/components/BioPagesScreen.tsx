@@ -5302,7 +5302,7 @@ export default function BioPagesScreen({
 
               {/* BLOCK LIBRARY PANEL */}
               {studioNavTab === "library" && (
-                <div className="space-y-3.5 key-editor-zone key-editor-zone--blocks w-full">
+                <div className="space-y-3.5 w-full">
                   {/* Search and Category Filter Pills */}
                   <div className="space-y-2">
                     <div className="relative">
@@ -5312,7 +5312,7 @@ export default function BioPagesScreen({
                         value={blockLibrarySearch}
                         onChange={(e) => setBlockLibrarySearch(e.target.value)}
                         placeholder="Search 50+ pro widgets..."
-                        className="w-full bg-white/[0.04] border border-white/[0.08] focus:border-indigo-500/70 focus:bg-white/[0.07] rounded-xl pl-8.5 pr-3 py-2 text-xs text-white placeholder-slate-400 focus:outline-none transition-colors"
+                        className="w-full bg-black/25 border border-white/10 focus:border-indigo-500/70 focus:bg-black/35 rounded-xl pl-8.5 pr-3 py-2 text-xs text-white placeholder-slate-400 focus:outline-none transition-colors"
                       />
                     </div>
 
@@ -5332,8 +5332,8 @@ export default function BioPagesScreen({
                           onClick={() => setBlockLibraryCategory(cat.id)}
                           className={`px-2.5 py-1 rounded-lg text-[11px] font-bold whitespace-nowrap transition-all cursor-pointer ${
                             blockLibraryCategory === cat.id
-                              ? "bg-indigo-600 text-white shadow-sm shadow-indigo-500/30"
-                              : "bg-white/[0.04] hover:bg-white/[0.08] text-slate-300 border border-white/[0.06]"
+                              ? "bg-indigo-600 text-white shadow-sm shadow-indigo-500/30 border border-indigo-400/50"
+                              : "bg-white/[0.05] hover:bg-white/[0.1] text-slate-200 border border-white/[0.08]"
                           }`}
                         >
                           {cat.label}
@@ -5342,7 +5342,7 @@ export default function BioPagesScreen({
                     </div>
                   </div>
 
-                  <div className="key-editor-zone__body key-workspace--stack no-scrollbar">
+                  <div className="space-y-3.5 key-workspace--stack no-scrollbar">
                     {/* 1. Hero & Headlines */}
                     {(blockLibraryCategory === "all" || blockLibraryCategory === "hero") && (
                     <div className="key-editor-blocks-palette">
@@ -6833,11 +6833,11 @@ export default function BioPagesScreen({
                                     {getBlockIcon(block.type)}
 
                                     <div className="min-w-0 pointer-events-none flex-1">
-                                      <span className="block text-xs font-bold text-slate-800 truncate" title={block.label}>
+                                      <span className="block text-xs font-bold text-slate-100 group-hover:text-white truncate key-editor-accordion-title" title={block.label}>
                                         {block.label}
                                       </span>
                                       <div className="flex items-center gap-1.5 flex-wrap">
-                                        <span className="block text-[8.5px] font-semibold text-slate-400 uppercase tracking-wider font-mono">
+                                        <span className="block text-[8.5px] font-semibold text-slate-300 uppercase tracking-wider font-mono key-editor-accordion-subtitle">
                                           {block.type}
                                         </span>
                                         {block.deviceVisibility === "mobile_only" && (
@@ -6904,7 +6904,7 @@ export default function BioPagesScreen({
                                           type="text"
                                           value={block.label}
                                           onChange={(e) => handleUpdateBlockField(block.id, "label", e.target.value)}
-                                          className="w-full bg-white border border-slate-200 focus:border-[#6366f1] focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-800"
+                                          className="w-full bg-black/25 border border-white/10 focus:border-indigo-500 focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500"
                                           placeholder="Enter widget label..."
                                         />
                                       </div>
@@ -6920,7 +6920,7 @@ export default function BioPagesScreen({
                                               type="text"
                                               value={(block as any).subtext || ""}
                                               onChange={(e) => handleUpdateBlockField(block.id, "subtext", e.target.value)}
-                                              className="w-full bg-white border border-slate-200 focus:border-[#6366f1] focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-800"
+                                              className="w-full bg-black/25 border border-white/10 focus:border-indigo-500 focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500"
                                               placeholder="e.g. Free shipping!"
                                             />
                                           </div>
@@ -6930,7 +6930,7 @@ export default function BioPagesScreen({
                                               type="text"
                                               value={(block as any).iconEmoji || ""}
                                               onChange={(e) => handleUpdateBlockField(block.id, "iconEmoji", e.target.value)}
-                                              className="w-full bg-white border border-slate-200 focus:border-[#6366f1] focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-800"
+                                              className="w-full bg-black/25 border border-white/10 focus:border-indigo-500 focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500"
                                               placeholder="e.g. 🎒"
                                             />
                                           </div>
@@ -6941,7 +6941,7 @@ export default function BioPagesScreen({
                                           <select
                                             value={(block as any).showArrow || "Yes"}
                                             onChange={(e) => handleUpdateBlockField(block.id, "showArrow", e.target.value)}
-                                            className="w-full bg-white border border-slate-200 focus:border-[#6366f1] focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-800"
+                                            className="w-full bg-black/25 border border-white/10 focus:border-indigo-500 focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500"
                                           >
                                             <option value="Yes">Yes</option>
                                             <option value="No">No</option>
@@ -7006,7 +7006,7 @@ export default function BioPagesScreen({
                                           type="text"
                                           value={block.value}
                                           onChange={(e) => handleUpdateBlockField(block.id, "value", e.target.value)}
-                                          className="w-full bg-white border border-slate-200 focus:border-[#6366f1] focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-800 font-mono"
+                                          className="w-full bg-black/25 border border-white/10 focus:border-indigo-500 focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500 font-mono"
                                           placeholder={
                                             block.type === "WhatsApp"
                                               ? "e.g. +919876543210"
@@ -7277,7 +7277,7 @@ export default function BioPagesScreen({
                                             type="text"
                                             value={block.value}
                                             onChange={(e) => handleUpdateBlockField(block.id, "value", e.target.value)}
-                                            className="w-full bg-white border border-slate-200 focus:border-[#6366f1] focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-800 font-mono"
+                                            className="w-full bg-black/25 border border-white/10 focus:border-indigo-500 focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500 font-mono"
                                           />
                                         </div>
                                         <div>
@@ -7286,7 +7286,7 @@ export default function BioPagesScreen({
                                             type="text"
                                             value={(block as any).discount || "10% OFF"}
                                             onChange={(e) => handleUpdateBlockField(block.id, "discount", e.target.value)}
-                                            className="w-full bg-white border border-slate-200 focus:border-[#6366f1] focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-800"
+                                            className="w-full bg-black/25 border border-white/10 focus:border-indigo-500 focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500"
                                           />
                                         </div>
                                       </div>
@@ -7301,7 +7301,7 @@ export default function BioPagesScreen({
                                             type="text"
                                             value={(block as any).headline || ""}
                                             onChange={(e) => handleUpdateBlockField(block.id, "headline", e.target.value)}
-                                            className="w-full bg-white border border-slate-200 focus:border-[#6366f1] focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-800"
+                                            className="w-full bg-black/25 border border-white/10 focus:border-indigo-500 focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500"
                                             placeholder="e.g. Limited offer ends in"
                                           />
                                         </div>
@@ -7311,7 +7311,7 @@ export default function BioPagesScreen({
                                             type="datetime-local"
                                             value={toDatetimeLocalValue((block as any).endAt as string)}
                                             onChange={(e) => handleUpdateBlockField(block.id, "endAt", fromDatetimeLocalValue(e.target.value))}
-                                            className="w-full bg-white border border-slate-200 focus:border-[#6366f1] focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-800"
+                                            className="w-full bg-black/25 border border-white/10 focus:border-indigo-500 focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500"
                                           />
                                         </div>
                                       </div>
@@ -7329,7 +7329,7 @@ export default function BioPagesScreen({
                                               value={(block as any)[platform.field] || ""}
                                               onChange={(e) => handleUpdateBlockField(block.id, platform.field, e.target.value)}
                                               placeholder={platform.placeholder}
-                                              className="w-full bg-white border border-slate-200 focus:border-[#6366f1] focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-800 font-mono"
+                                              className="w-full bg-black/25 border border-white/10 focus:border-indigo-500 focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500 font-mono"
                                             />
                                           </div>
                                         ))}
@@ -7416,7 +7416,7 @@ export default function BioPagesScreen({
                                             type="text"
                                             value={(block as any).couponCode || "LUCKYSPIN20"}
                                             onChange={(e) => handleUpdateBlockField(block.id, "couponCode", e.target.value)}
-                                            className="w-full bg-white border border-slate-200 focus:border-[#6366f1] focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-800 font-mono"
+                                            className="w-full bg-black/25 border border-white/10 focus:border-indigo-500 focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500 font-mono"
                                           />
                                         </div>
                                         <div>
@@ -7426,7 +7426,7 @@ export default function BioPagesScreen({
                                             value={(block as any).prizesText || ""}
                                             onChange={(e) => handleUpdateBlockField(block.id, "prizesText", e.target.value)}
                                             placeholder={"20% discount unlocked!\nFree gift with your next order!"}
-                                            className="w-full bg-white border border-slate-200 focus:border-[#6366f1] focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-800"
+                                            className="w-full bg-black/25 border border-white/10 focus:border-indigo-500 focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500"
                                           />
                                         </div>
                                       </div>
@@ -7440,7 +7440,7 @@ export default function BioPagesScreen({
                                           type="text"
                                             value={(block as any).contactName || ""}
                                             onChange={(e) => handleUpdateBlockField(block.id, "contactName", e.target.value)}
-                                            className="w-full bg-white border border-slate-200 focus:border-[#6366f1] focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-800"
+                                            className="w-full bg-black/25 border border-white/10 focus:border-indigo-500 focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500"
                                           />
                                         </div>
                                         <div>
@@ -7450,7 +7450,7 @@ export default function BioPagesScreen({
                                             value={(block as any).phone || ""}
                                             onChange={(e) => handleUpdateBlockField(block.id, "phone", e.target.value)}
                                             placeholder="+919876543210"
-                                            className="w-full bg-white border border-slate-200 focus:border-[#6366f1] focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-800"
+                                            className="w-full bg-black/25 border border-white/10 focus:border-indigo-500 focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500"
                                           />
                                         </div>
                                         <div>
@@ -7460,7 +7460,7 @@ export default function BioPagesScreen({
                                             value={(block as any).email || ""}
                                             onChange={(e) => handleUpdateBlockField(block.id, "email", e.target.value)}
                                             placeholder="you@example.com"
-                                            className="w-full bg-white border border-slate-200 focus:border-[#6366f1] focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-800"
+                                            className="w-full bg-black/25 border border-white/10 focus:border-indigo-500 focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500"
                                           />
                                         </div>
                                       </div>
@@ -7474,7 +7474,7 @@ export default function BioPagesScreen({
                                           value={(block as any).thumbUrl || ""}
                                           onChange={(e) => handleUpdateBlockField(block.id, "thumbUrl", e.target.value)}
                                           placeholder="Leave empty for YouTube auto-thumb"
-                                          className="w-full bg-white border border-slate-200 focus:border-[#6366f1] focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-800 font-mono"
+                                          className="w-full bg-black/25 border border-white/10 focus:border-indigo-500 focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500 font-mono"
                                         />
                                       </div>
                                     )}
@@ -7487,7 +7487,7 @@ export default function BioPagesScreen({
                                           value={(block as any).subtext || ""}
                                           onChange={(e) => handleUpdateBlockField(block.id, "subtext", e.target.value)}
                                           placeholder="e.g. Theme Track • 3:24"
-                                          className="w-full bg-white border border-slate-200 focus:border-[#6366f1] focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-800"
+                                          className="w-full bg-black/25 border border-white/10 focus:border-indigo-500 focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500"
                                         />
                                       </div>
                                     )}
@@ -7501,7 +7501,7 @@ export default function BioPagesScreen({
                                             value={(block as any).eventMonth || ""}
                                             onChange={(e) => handleUpdateBlockField(block.id, "eventMonth", e.target.value.toUpperCase())}
                                             placeholder="JUL"
-                                            className="w-full bg-white border border-slate-200 focus:border-[#6366f1] focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-800 uppercase"
+                                            className="w-full bg-black/25 border border-white/10 focus:border-indigo-500 focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500 uppercase"
                                           />
                                         </div>
                                         <div>
@@ -7511,7 +7511,7 @@ export default function BioPagesScreen({
                                             value={(block as any).eventDay || ""}
                                             onChange={(e) => handleUpdateBlockField(block.id, "eventDay", e.target.value)}
                                             placeholder="20"
-                                            className="w-full bg-white border border-slate-200 focus:border-[#6366f1] focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-800"
+                                            className="w-full bg-black/25 border border-white/10 focus:border-indigo-500 focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500"
                                           />
                                         </div>
                                       </div>
@@ -7525,7 +7525,7 @@ export default function BioPagesScreen({
                                           type="text"
                                           value={(block as any).fileSize || "3.2 MB"}
                                           onChange={(e) => handleUpdateBlockField(block.id, "fileSize", e.target.value)}
-                                          className="w-full bg-white border border-slate-200 focus:border-[#6366f1] focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-800"
+                                          className="w-full bg-black/25 border border-white/10 focus:border-indigo-500 focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500"
                                         />
                                       </div>
                                     )}
@@ -7556,7 +7556,7 @@ export default function BioPagesScreen({
                                             type="text"
                                             value={(block as any).description || ""}
                                             onChange={(e) => handleUpdateBlockField(block.id, "description", e.target.value)}
-                                            className="w-full bg-white border border-slate-200 focus:border-[#6366f1] focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-800"
+                                            className="w-full bg-black/25 border border-white/10 focus:border-indigo-500 focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500"
                                             placeholder="Optional short helper text"
                                               />
                                             </div>
@@ -7569,7 +7569,7 @@ export default function BioPagesScreen({
                                               type="text"
                                             value={(block as any).submitLabel || "Submit"}
                                             onChange={(e) => handleUpdateBlockField(block.id, "submitLabel", e.target.value)}
-                                            className="w-full bg-white border border-slate-200 focus:border-[#6366f1] focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-800"
+                                            className="w-full bg-black/25 border border-white/10 focus:border-indigo-500 focus:outline-none rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500"
                                             placeholder="Submit"
                                             disabled={paymentEnabled && paymentAmountInr > 0}
                                             />
@@ -8363,7 +8363,7 @@ export default function BioPagesScreen({
                                              type="text"
                                              value={(block as any).badgeText || ""}
                                              onChange={(e) => handleUpdateBlockField(block.id, "badgeText", e.target.value)}
-                                             className="w-full bg-white border border-slate-200 rounded-xl py-2 px-3 text-xs text-slate-800"
+                                             className="w-full bg-black/25 border border-white/10 rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500"
                                              placeholder="e.g. 🚀 Next-Gen Micro-Site Builder"
                                            />
                                          </div>
@@ -8373,7 +8373,7 @@ export default function BioPagesScreen({
                                              type="text"
                                              value={(block as any).headline || ""}
                                              onChange={(e) => handleUpdateBlockField(block.id, "headline", e.target.value)}
-                                             className="w-full bg-white border border-slate-200 rounded-xl py-2 px-3 text-xs text-slate-800"
+                                             className="w-full bg-black/25 border border-white/10 rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500"
                                              placeholder="Headline..."
                                            />
                                          </div>
@@ -8383,7 +8383,7 @@ export default function BioPagesScreen({
                                              rows={2}
                                              value={(block as any).subheadline || ""}
                                              onChange={(e) => handleUpdateBlockField(block.id, "subheadline", e.target.value)}
-                                             className="w-full bg-white border border-slate-200 rounded-xl py-2 px-3 text-xs text-slate-800"
+                                             className="w-full bg-black/25 border border-white/10 rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500"
                                              placeholder="Supporting description..."
                                            />
                                          </div>
@@ -8394,7 +8394,7 @@ export default function BioPagesScreen({
                                                type="text"
                                                value={(block as any).primaryCtaLabel || ""}
                                                onChange={(e) => handleUpdateBlockField(block.id, "primaryCtaLabel", e.target.value)}
-                                               className="w-full bg-white border border-slate-200 rounded-xl py-2 px-3 text-xs text-slate-800"
+                                               className="w-full bg-black/25 border border-white/10 rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500"
                                                placeholder="Get Started Free"
                                              />
                                            </div>
@@ -8404,7 +8404,7 @@ export default function BioPagesScreen({
                                                type="text"
                                                value={(block as any).primaryCtaUrl || ""}
                                                onChange={(e) => handleUpdateBlockField(block.id, "primaryCtaUrl", e.target.value)}
-                                               className="w-full bg-white border border-slate-200 rounded-xl py-2 px-3 text-xs text-slate-800 font-mono"
+                                               className="w-full bg-black/25 border border-white/10 rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500 font-mono"
                                                placeholder="https://..."
                                              />
                                            </div>
@@ -8416,7 +8416,7 @@ export default function BioPagesScreen({
                                                type="text"
                                                value={(block as any).secondaryCtaLabel || ""}
                                                onChange={(e) => handleUpdateBlockField(block.id, "secondaryCtaLabel", e.target.value)}
-                                               className="w-full bg-white border border-slate-200 rounded-xl py-2 px-3 text-xs text-slate-800"
+                                               className="w-full bg-black/25 border border-white/10 rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500"
                                                placeholder="Book a Demo"
                                              />
                                            </div>
@@ -8426,7 +8426,7 @@ export default function BioPagesScreen({
                                                type="text"
                                                value={(block as any).secondaryCtaUrl || ""}
                                                onChange={(e) => handleUpdateBlockField(block.id, "secondaryCtaUrl", e.target.value)}
-                                               className="w-full bg-white border border-slate-200 rounded-xl py-2 px-3 text-xs text-slate-800 font-mono"
+                                               className="w-full bg-black/25 border border-white/10 rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500 font-mono"
                                                placeholder="https://..."
                                              />
                                            </div>
@@ -8437,7 +8437,7 @@ export default function BioPagesScreen({
                                              type="text"
                                              value={(block as any).imageUrl || ""}
                                              onChange={(e) => handleUpdateBlockField(block.id, "imageUrl", e.target.value)}
-                                             className="w-full bg-white border border-slate-200 rounded-xl py-2 px-3 text-xs text-slate-800 font-mono"
+                                             className="w-full bg-black/25 border border-white/10 rounded-xl py-2 px-3 text-xs text-slate-100 placeholder-slate-500 font-mono"
                                              placeholder="https://images.unsplash.com/..."
                                            />
                                          </div>
