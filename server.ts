@@ -1210,7 +1210,9 @@ function isPlatformHostname(hostname: string) {
   const configured = [
     process.env.APP_URL,
     process.env.API_URL,
-    process.env.RAILWAY_PUBLIC_DOMAIN
+    process.env.RAILWAY_PUBLIC_DOMAIN,
+    process.env.RENDER_EXTERNAL_URL,
+    process.env.RENDER_EXTERNAL_HOSTNAME
   ];
   return configured.some((value) => {
     if (!value) return false;

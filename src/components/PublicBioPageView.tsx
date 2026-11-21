@@ -30,9 +30,7 @@ import {
   getLinkSpinPrizes,
   normalizeExternalUrl,
   filterVisibleBioBlocks,
-  isWideBlock,
-  getSemanticAnchorForBlock,
-  resolveDestination
+  isWideBlock
 } from "../lib/bioBlocks";
 import { apiUrl } from "../lib/apiBase";
 import { openRazorpayCheckoutAndVerify, pageRequiresPayment } from "../lib/razorpayCheckout";
@@ -721,11 +719,6 @@ export default function PublicBioPageView({
       return;
     }
 
-    if (target.startsWith("#")) {
-      resolveDestination(target, target.slice(1), liveBlockHandlers, mode);
-      return;
-    }
-
     const url = normalizeExternalUrl(target);
     try {
       if (url.startsWith("mailto:") || url.startsWith("tel:")) {
@@ -1362,16 +1355,10 @@ export default function PublicBioPageView({
 
                 const devStyles = computeBlockInlineStyles((block as any).styles);
                 const devMeta = getBlockCustomMeta((block as any).styles);
-                const anchorId = getSemanticAnchorForBlock(block as any);
 
                 return (
                   <div
                     key={`${block.id}-pay-${paymentRequired ? paymentAmountInr || 0 : 0}`}
-                    id={anchorId || `block-${block.id}`}
-                    data-block-id={block.id}
-                    data-block-type={block.type}
-                    data-block-label={block.label || ""}
-                    data-block-anchor={anchorId || undefined}
                     style={devStyles}
                     aria-label={devMeta.ariaLabel}
                     draggable={mode === "preview" && !isBlockLocked && !showThanksPage}
