@@ -26363,24 +26363,23 @@ body.key-editor-open header.key-glass-header {
 
 }
 
-
-
 /* ========================================================================= */
-/* UNIFIED CUSTOM DOMAIN WIZARD & DIALOG THEME SYSTEM                        */
-/* Ensures Connect Domain modal strictly matches active Personalization Theme*/
+/* UNIFIED CUSTOM DOMAIN WIZARD & DIALOG THEME SYSTEM (END-TO-END POLISH)    */
+/* Ensures all wizard screens, page pickers, provider cards, DNS tables,     */
+/* checklists, dialogs & buttons have 100% crisp contrast & theme matching.  */
 /* ========================================================================= */
 
-/* 1. UNIVERSAL THEME ADAPTATION VIA CSS VARIABLES */
+/* 1. UNIVERSAL DIALOG SHELLS */
 .key-domain-wizard,
 .key-domain-remove-dialog,
 .key-how-works-dialog,
 .key-cf-info-dialog {
   background: var(--key-surface-strong, #131027) !important;
-  border: 1px solid var(--key-border-strong, rgba(168, 85, 247, 0.25)) !important;
+  border: 1.5px solid var(--key-border-strong, rgba(168, 85, 247, 0.3)) !important;
   color: var(--key-text, #faf5ff) !important;
-  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.75), 0 0 24px -4px var(--key-accent, rgba(168, 85, 247, 0.25)) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
+  box-shadow: 0 32px 72px rgba(0, 0, 0, 0.8), 0 0 28px -4px var(--key-accent, rgba(168, 85, 247, 0.3)) !important;
+  backdrop-filter: blur(24px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.4) !important;
 }
 
 .key-domain-wizard__header,
@@ -26393,17 +26392,32 @@ body.key-editor-open header.key-glass-header {
 .key-how-works-dialog__header h3 {
   color: var(--key-text, #faf5ff) !important;
   font-weight: 800 !important;
+  letter-spacing: -0.01em !important;
 }
 
 .key-domain-wizard__lead,
 .key-domain-remove-dialog p,
 .key-how-works-dialog__header p {
   color: var(--key-muted, #c4b5fd) !important;
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+}
+
+.key-domain-wizard__lead strong,
+.key-domain-remove-dialog p strong,
+.key-how-works-dialog__header p strong {
+  color: #ffffff !important;
+  font-weight: 700 !important;
 }
 
 .key-domain-wizard__label {
   color: var(--key-text, #faf5ff) !important;
   font-weight: 700 !important;
+  font-size: 0.875rem !important;
+}
+
+.key-domain-wizard__label strong {
+  color: #ffffff !important;
 }
 
 .key-domain-wizard__back,
@@ -26417,8 +26431,8 @@ body.key-editor-open header.key-glass-header {
 .key-domain-wizard__back:hover,
 .key-domain-wizard__close:hover,
 .key-how-works-dialog__close:hover {
-  background: var(--key-surface, rgba(255, 255, 255, 0.08)) !important;
-  color: var(--key-text, #ffffff) !important;
+  background: var(--key-surface, rgba(255, 255, 255, 0.1)) !important;
+  color: #ffffff !important;
 }
 
 /* Progress dots */
@@ -26428,64 +26442,271 @@ body.key-editor-open header.key-glass-header {
 }
 
 .key-domain-wizard__dot.is-active {
-  background: var(--key-border-strong, rgba(168, 85, 247, 0.5)) !important;
+  background: var(--key-border-strong, rgba(168, 85, 247, 0.55)) !important;
 }
 
 .key-domain-wizard__dot.is-current {
   background: var(--key-accent, #a855f7) !important;
-  box-shadow: 0 0 10px var(--key-accent, rgba(168, 85, 247, 0.7)) !important;
+  box-shadow: 0 0 12px var(--key-accent, rgba(168, 85, 247, 0.75)) !important;
   transform: scale(1.25) !important;
 }
 
-/* Inputs */
+/* Text Inputs */
 .key-domain-wizard__input,
 .key-domain-wizard__provider-input {
   background: var(--key-bg-deep, #0c0a1a) !important;
-  border: 1px solid var(--key-border, rgba(168, 85, 247, 0.25)) !important;
+  border: 1.5px solid var(--key-border, rgba(168, 85, 247, 0.25)) !important;
   color: var(--key-text, #faf5ff) !important;
   border-radius: 0.75rem !important;
+  padding: 0.75rem 1rem !important;
+  font-size: 0.9375rem !important;
+  font-weight: 500 !important;
   transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 
 .key-domain-wizard__input:focus,
 .key-domain-wizard__provider-input:focus {
   border-color: var(--key-accent, #a855f7) !important;
-  box-shadow: 0 0 0 3px var(--key-border-strong, rgba(168, 85, 247, 0.25)) !important;
+  box-shadow: 0 0 0 3px var(--key-border-strong, rgba(168, 85, 247, 0.3)) !important;
   outline: none !important;
+  color: #ffffff !important;
 }
 
-/* Provider Cards (Cloudflare, Manual, etc.) */
-.key-provider-card {
-  background: var(--key-surface, rgba(26, 22, 53, 0.8)) !important;
-  border: 1.5px solid var(--key-border, rgba(168, 85, 247, 0.2)) !important;
+.key-domain-wizard__input::placeholder,
+.key-domain-wizard__provider-input::placeholder {
+  color: var(--key-muted, #94a3b8) !important;
+  opacity: 0.65 !important;
+}
+
+/* 2. SEARCHABLE PAGE PICKER (DROPDOWN MENU & OPTIONS) - NO WHITE BOXES, CRISP VISIBLE TEXT */
+.key-domain-wizard .key-page-picker {
+  position: relative !important;
+  z-index: 25 !important;
+}
+
+.key-domain-wizard .key-page-picker__trigger {
+  background: var(--key-bg-deep, #0c0a1a) !important;
+  border: 1.5px solid var(--key-border, rgba(168, 85, 247, 0.25)) !important;
+  color: var(--key-text, #faf5ff) !important;
+  border-radius: 0.75rem !important;
+  padding: 0.75rem 1rem !important;
+  transition: all 0.2s ease !important;
+}
+
+.key-domain-wizard .key-page-picker__trigger:hover {
+  border-color: var(--key-accent, #a855f7) !important;
+  background: var(--key-surface, rgba(26, 22, 53, 0.9)) !important;
+}
+
+.key-domain-wizard .key-page-picker__trigger-label {
+  color: var(--key-text, #faf5ff) !important;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+}
+
+.key-domain-wizard .key-page-picker__trigger-label.is-placeholder {
+  color: var(--key-muted, #c4b5fd) !important;
+  font-weight: 500 !important;
+}
+
+.key-domain-wizard .key-page-picker__chevron {
+  color: var(--key-accent-3, #c084fc) !important;
+}
+
+/* The Page Dropdown Panel */
+.key-domain-wizard .key-page-picker__menu {
+  position: absolute !important;
+  top: calc(100% + 0.35rem) !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 60 !important;
+  background: var(--key-surface-strong, #16102f) !important;
+  border: 1.5px solid var(--key-border-strong, rgba(168, 85, 247, 0.45)) !important;
+  box-shadow: 0 24px 60px -8px rgba(0, 0, 0, 0.88), 0 0 24px -4px var(--key-accent, rgba(168, 85, 247, 0.35)) !important;
   color: var(--key-text, #faf5ff) !important;
   border-radius: 1rem !important;
-  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.25) !important;
+  overflow: hidden !important;
+  backdrop-filter: blur(24px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.4) !important;
+}
+
+/* Search bar inside Dropdown */
+.key-domain-wizard .key-page-picker__search {
+  background: rgba(0, 0, 0, 0.5) !important;
+  border-bottom: 1px solid var(--key-border, rgba(255, 255, 255, 0.1)) !important;
+  padding: 0.75rem 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.65rem !important;
+}
+
+.key-domain-wizard .key-page-picker__search svg {
+  color: var(--key-accent-3, #c084fc) !important;
+  flex-shrink: 0 !important;
+}
+
+.key-domain-wizard .key-page-picker__search-input {
+  color: #ffffff !important;
+  background: transparent !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  border: none !important;
+  outline: none !important;
+  width: 100% !important;
+  caret-color: var(--key-accent, #a855f7) !important;
+}
+
+.key-domain-wizard .key-page-picker__search-input::placeholder {
+  color: var(--key-muted, #94a3b8) !important;
+}
+
+/* List container */
+.key-domain-wizard .key-page-picker__list {
+  max-height: 12rem !important;
+  overflow-y: auto !important;
+  padding: 0.4rem !important;
+  margin: 0 !important;
+  list-style: none !important;
+  background: transparent !important;
+}
+
+/* Option Row in Dropdown */
+.key-domain-wizard .key-page-picker__option {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 0.75rem !important;
+  padding: 0.7rem 0.85rem !important;
+  border-radius: 0.65rem !important;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  text-align: left !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+/* High contrast row text: 100% visible before hover */
+.key-domain-wizard .key-page-picker__option-title {
+  color: #ffffff !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+}
+
+.key-domain-wizard .key-page-picker__option-id {
+  color: var(--key-muted, #c4b5fd) !important;
+  font-size: 0.72rem !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  margin-top: 0.2rem !important;
+  opacity: 0.9 !important;
+}
+
+.key-domain-wizard .key-page-picker__option-resume {
+  color: var(--key-accent-3, #c084fc) !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  margin-top: 0.2rem !important;
+}
+
+/* Hover and active row states */
+.key-domain-wizard .key-page-picker__option:hover,
+.key-domain-wizard .key-page-picker__option--selected {
+  background: var(--key-surface-hover, rgba(168, 85, 247, 0.24)) !important;
+  border-color: var(--key-accent, rgba(168, 85, 247, 0.5)) !important;
+  box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.4) !important;
+}
+
+.key-domain-wizard .key-page-picker__option:hover .key-page-picker__option-title,
+.key-domain-wizard .key-page-picker__option--selected .key-page-picker__option-title {
+  color: #ffffff !important;
+}
+
+.key-domain-wizard .key-page-picker__option:hover .key-page-picker__option-id,
+.key-domain-wizard .key-page-picker__option--selected .key-page-picker__option-id {
+  color: #f1f5f9 !important;
+  opacity: 1 !important;
+}
+
+/* Live Status Badge */
+.key-domain-wizard .key-page-picker__status {
+  padding: 0.2rem 0.55rem !important;
+  border-radius: 9999px !important;
+  font-size: 0.6875rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.04em !important;
+  flex-shrink: 0 !important;
+}
+
+.key-domain-wizard .key-page-picker__status--live {
+  background: rgba(16, 185, 129, 0.18) !important;
+  border: 1px solid rgba(16, 185, 129, 0.4) !important;
+  color: #34d399 !important;
+}
+
+/* Empty State & Dropdown Footer */
+.key-domain-wizard .key-page-picker__empty {
+  padding: 1.25rem 1rem !important;
+  text-align: center !important;
+  color: var(--key-muted, #c4b5fd) !important;
+  font-size: 0.8125rem !important;
+  font-weight: 500 !important;
+}
+
+.key-domain-wizard .key-page-picker__footer {
+  padding: 0.6rem 1rem !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+  border-top: 1px solid var(--key-border, rgba(255, 255, 255, 0.08)) !important;
+  color: var(--key-muted, #c4b5fd) !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+}
+
+/* 3. PROVIDER SELECTION SCREEN (PHASE 'PROVIDER') */
+.key-provider-card {
+  background: var(--key-surface, rgba(26, 22, 53, 0.8)) !important;
+  border: 1.5px solid var(--key-border, rgba(168, 85, 247, 0.22)) !important;
+  color: var(--key-text, #faf5ff) !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.3) !important;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .key-provider-card:hover {
   background: var(--key-surface-strong, rgba(38, 30, 78, 0.95)) !important;
   border-color: var(--key-accent, #a855f7) !important;
-  box-shadow: 0 4px 20px -2px var(--key-accent, rgba(168, 85, 247, 0.4)) !important;
+  box-shadow: 0 6px 24px -4px var(--key-accent, rgba(168, 85, 247, 0.45)) !important;
   transform: translateY(-2px) !important;
 }
 
 .key-provider-card.is-selected {
-  background: var(--key-surface-strong, rgba(38, 30, 78, 0.98)) !important;
+  background: var(--key-surface-strong, rgba(42, 32, 85, 0.98)) !important;
   border-color: var(--key-accent, #a855f7) !important;
-  box-shadow: 0 0 22px -2px var(--key-accent, rgba(168, 85, 247, 0.45)) !important;
+  box-shadow: 0 0 24px -2px var(--key-accent, rgba(168, 85, 247, 0.55)) !important;
 }
 
-.key-provider-card__title,
-.key-domain-wizard__provider-title {
-  color: var(--key-text, #faf5ff) !important;
-  font-weight: 700 !important;
+.key-provider-card__name {
+  color: #ffffff !important;
+  font-size: 0.9375rem !important;
+  font-weight: 800 !important;
 }
 
-.key-provider-card__blurb,
-.key-domain-wizard__provider-lead {
+.key-provider-card__blurb {
   color: var(--key-muted, #c4b5fd) !important;
+  font-size: 0.72rem !important;
+  line-height: 1.35 !important;
+}
+
+.key-provider-card:hover .key-provider-card__blurb,
+.key-provider-card.is-selected .key-provider-card__blurb {
+  color: #f1f5f9 !important;
+}
+
+.key-provider-card__badge {
+  background: rgba(16, 185, 129, 0.18) !important;
+  border: 1px solid rgba(16, 185, 129, 0.4) !important;
+  color: #34d399 !important;
+  font-weight: 800 !important;
 }
 
 .key-provider-card__logo-wrap {
@@ -26494,30 +26715,110 @@ body.key-editor-open header.key-glass-header {
   border-radius: 0.75rem !important;
 }
 
-/* Page Picker Dropdown */
-.key-domain-wizard .key-page-picker__trigger {
-  background: var(--key-bg-deep, #0c0a1a) !important;
+/* 4. AUTO-STEPS, CHECKLISTS, BANNERS, PILLS & LINKS */
+.key-domain-wizard__auto-steps > div {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid var(--key-border, rgba(168, 85, 247, 0.22)) !important;
+  border-radius: 0.75rem !important;
+  color: var(--key-text, #faf5ff) !important;
+  font-size: 0.8125rem !important;
+  font-weight: 600 !important;
+}
+
+.key-domain-wizard__auto-steps > div svg {
+  color: var(--key-accent-3, #c084fc) !important;
+}
+
+.key-domain-wizard__hint-pill {
+  background: rgba(168, 85, 247, 0.15) !important;
+  border: 1px solid rgba(168, 85, 247, 0.35) !important;
+  color: var(--key-accent-3, #c084fc) !important;
+  font-weight: 700 !important;
+}
+
+.key-domain-wizard__help-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.5rem !important;
+  margin: 1rem 0 0.5rem !important;
+}
+
+.key-domain-wizard__help-chip {
+  background: rgba(255, 255, 255, 0.05) !important;
   border: 1px solid var(--key-border, rgba(168, 85, 247, 0.25)) !important;
   color: var(--key-text, #faf5ff) !important;
+  border-radius: 999px !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  padding: 0.4rem 0.75rem !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+
+.key-domain-wizard__help-chip:hover {
+  background: var(--key-surface-hover, rgba(168, 85, 247, 0.24)) !important;
+  border-color: var(--key-accent, #a855f7) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 14px var(--key-accent, rgba(168, 85, 247, 0.35)) !important;
+}
+
+.key-domain-wizard__link {
+  color: var(--key-accent-3, #c084fc) !important;
+  font-weight: 600 !important;
+  transition: color 0.15s ease !important;
+}
+
+.key-domain-wizard__link:hover {
+  color: #ffffff !important;
+}
+
+/* Verification Checklist Pretty */
+.key-domain-wizard__checklist--pretty li {
+  color: var(--key-muted, #c4b5fd) !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+}
+
+.key-domain-wizard__checklist--pretty li.is-done {
+  color: #34d399 !important;
+  font-weight: 700 !important;
+}
+
+.key-domain-wizard__checklist--pretty li.is-current {
+  color: var(--key-accent-3, #c084fc) !important;
+  font-weight: 800 !important;
+}
+
+/* Info banners & error messages */
+.key-domain-wizard__info-banner {
+  background: rgba(168, 85, 247, 0.12) !important;
+  border: 1px solid rgba(168, 85, 247, 0.3) !important;
+  color: var(--key-text, #faf5ff) !important;
+  border-radius: 0.75rem !important;
+  font-weight: 600 !important;
+}
+
+.key-domain-wizard__alert {
+  background: rgba(245, 158, 11, 0.12) !important;
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+  color: #fbbf24 !important;
   border-radius: 0.75rem !important;
 }
 
-.key-domain-wizard .key-page-picker__menu {
-  background: var(--key-surface-strong, #1a1635) !important;
-  border: 1px solid var(--key-border-strong, rgba(168, 85, 247, 0.35)) !important;
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.65) !important;
-  color: var(--key-text, #faf5ff) !important;
-  border-radius: 0.85rem !important;
+.key-domain-wizard__error {
+  background: rgba(239, 68, 68, 0.12) !important;
+  border: 1px solid rgba(239, 68, 68, 0.35) !important;
+  color: #fca5a5 !important;
+  border-radius: 0.75rem !important;
+  padding: 0.5rem 0.75rem !important;
+  font-size: 0.8125rem !important;
+  font-weight: 600 !important;
 }
 
-.key-domain-wizard .key-page-picker__footer {
-  border-top: 1px solid var(--key-border, rgba(255, 255, 255, 0.08)) !important;
-}
-
-/* DNS Copy Table */
+/* 5. DNS COPY TABLE & BUTTONS */
 .key-domain-wizard__dns-table {
   background: var(--key-bg-deep, #0c0a1a) !important;
-  border: 1px solid var(--key-border, rgba(168, 85, 247, 0.22)) !important;
+  border: 1.5px solid var(--key-border, rgba(168, 85, 247, 0.25)) !important;
   border-radius: 0.95rem !important;
   overflow: hidden !important;
 }
@@ -26526,6 +26827,10 @@ body.key-editor-open header.key-glass-header {
   background: var(--key-surface, rgba(26, 22, 53, 0.95)) !important;
   color: var(--key-muted, #c4b5fd) !important;
   border-bottom: 1px solid var(--key-border, rgba(168, 85, 247, 0.2)) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  font-size: 0.6875rem !important;
 }
 
 .key-domain-wizard__dns-row {
@@ -26537,16 +26842,40 @@ body.key-editor-open header.key-glass-header {
 }
 
 .key-dns-copy-field__value {
-  background: var(--key-bg-deep, #080612) !important;
+  background: var(--key-bg-deep, #070512) !important;
   border: 1px solid var(--key-border, rgba(168, 85, 247, 0.25)) !important;
-  color: var(--key-text, #faf5ff) !important;
+  color: #ffffff !important;
   border-radius: 0.5rem !important;
   font-family: ui-monospace, monospace !important;
+  font-size: 0.8125rem !important;
+  font-weight: 600 !important;
+}
+
+.key-dns-copy-field__btn {
+  background: var(--key-surface-strong, rgba(168, 85, 247, 0.22)) !important;
+  border: 1px solid var(--key-border, rgba(168, 85, 247, 0.35)) !important;
+  color: var(--key-text, #faf5ff) !important;
+  border-radius: 0.5rem !important;
+  font-weight: 700 !important;
+  transition: all 0.2s ease !important;
+}
+
+.key-dns-copy-field__btn:hover {
+  background: var(--key-accent, #a855f7) !important;
+  border-color: var(--key-accent, #a855f7) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 12px var(--key-accent, rgba(168, 85, 247, 0.5)) !important;
+}
+
+.key-dns-copy-field__btn.is-copied {
+  background: #10b981 !important;
+  border-color: #10b981 !important;
+  color: #ffffff !important;
 }
 
 .key-domain-wizard__copy {
-  background: var(--key-surface-strong, rgba(168, 85, 247, 0.18)) !important;
-  border: 1px solid var(--key-border, rgba(168, 85, 247, 0.3)) !important;
+  background: var(--key-surface-strong, rgba(168, 85, 247, 0.22)) !important;
+  border: 1px solid var(--key-border, rgba(168, 85, 247, 0.35)) !important;
   color: var(--key-text, #faf5ff) !important;
   border-radius: 0.5rem !important;
   font-weight: 700 !important;
@@ -26633,50 +26962,52 @@ body.key-editor-open header.key-glass-header {
   color: var(--key-text, #faf5ff) !important;
 }
 
-/* ========================================================================= */
-/* 2. SPECIFIC THEME OVERRIDES FOR CUSTOM DOMAIN WIZARD                      */
-/* ========================================================================= */
+/* 6. SPECIFIC THEME OVERRIDES */
 
 /* --- AURORA INDIGO (SYNTHWAVE) --- */
 .key-theme-synthwave .key-domain-wizard,
 .key-theme-synthwave .key-domain-remove-dialog,
 .key-theme-synthwave .key-how-works-dialog {
   background: #140e2b !important;
-  border: 1px solid rgba(168, 85, 247, 0.28) !important;
-  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.75), 0 0 24px -4px rgba(168, 85, 247, 0.25) !important;
+  border: 1.5px solid rgba(168, 85, 247, 0.35) !important;
+  box-shadow: 0 32px 72px rgba(0, 0, 0, 0.8), 0 0 28px -4px rgba(168, 85, 247, 0.35) !important;
 }
 .key-theme-synthwave .key-provider-card {
   background: #1d163d !important;
-  border: 1.5px solid rgba(168, 85, 247, 0.22) !important;
+  border: 1.5px solid rgba(168, 85, 247, 0.25) !important;
 }
 .key-theme-synthwave .key-provider-card:hover {
   background: #271e52 !important;
   border-color: #a855f7 !important;
-  box-shadow: 0 4px 20px -2px rgba(168, 85, 247, 0.4) !important;
+  box-shadow: 0 4px 20px -2px rgba(168, 85, 247, 0.45) !important;
 }
 .key-theme-synthwave .key-provider-card.is-selected {
   background: #2c225c !important;
   border-color: #a855f7 !important;
-  box-shadow: 0 0 22px -2px rgba(168, 85, 247, 0.45) !important;
+  box-shadow: 0 0 24px -2px rgba(168, 85, 247, 0.55) !important;
 }
 .key-theme-synthwave .key-domain-wizard__input,
 .key-theme-synthwave .key-domain-wizard__provider-input,
 .key-theme-synthwave .key-domain-wizard .key-page-picker__trigger {
   background: #0c0a1a !important;
-  border-color: rgba(168, 85, 247, 0.25) !important;
+  border-color: rgba(168, 85, 247, 0.3) !important;
   color: #faf5ff !important;
+}
+.key-theme-synthwave .key-domain-wizard .key-page-picker__menu {
+  background: #16102f !important;
+  border-color: rgba(168, 85, 247, 0.45) !important;
 }
 .key-theme-synthwave .key-domain-wizard__dns-table {
   background: #0c0a1a !important;
-  border-color: rgba(168, 85, 247, 0.22) !important;
+  border-color: rgba(168, 85, 247, 0.25) !important;
 }
 .key-theme-synthwave .key-domain-wizard__dns-head {
   background: #181236 !important;
   color: #c4b5fd !important;
 }
 .key-theme-synthwave .key-dns-copy-field__value {
-  background: #080612 !important;
-  border-color: rgba(168, 85, 247, 0.25) !important;
+  background: #070512 !important;
+  border-color: rgba(168, 85, 247, 0.28) !important;
   color: #faf5ff !important;
 }
 .key-theme-synthwave .key-domain-wizard__copy {
@@ -26693,28 +27024,32 @@ body.key-editor-open header.key-glass-header {
 .key-theme-matrix .key-domain-remove-dialog,
 .key-theme-matrix .key-how-works-dialog {
   background: #08160f !important;
-  border: 1px solid rgba(16, 185, 129, 0.28) !important;
-  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.75), 0 0 24px -4px rgba(16, 185, 129, 0.25) !important;
+  border: 1.5px solid rgba(16, 185, 129, 0.35) !important;
+  box-shadow: 0 32px 72px rgba(0, 0, 0, 0.8), 0 0 28px -4px rgba(16, 185, 129, 0.35) !important;
 }
 .key-theme-matrix .key-provider-card {
   background: #0d2419 !important;
-  border: 1.5px solid rgba(16, 185, 129, 0.22) !important;
+  border: 1.5px solid rgba(16, 185, 129, 0.25) !important;
 }
 .key-theme-matrix .key-provider-card:hover {
   background: #133525 !important;
   border-color: #10b981 !important;
-  box-shadow: 0 4px 20px -2px rgba(16, 185, 129, 0.4) !important;
+  box-shadow: 0 4px 20px -2px rgba(16, 185, 129, 0.45) !important;
 }
 .key-theme-matrix .key-domain-wizard__input,
 .key-theme-matrix .key-domain-wizard__provider-input,
 .key-theme-matrix .key-domain-wizard .key-page-picker__trigger {
   background: #040f0a !important;
-  border-color: rgba(16, 185, 129, 0.25) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
   color: #f0fdf4 !important;
+}
+.key-theme-matrix .key-domain-wizard .key-page-picker__menu {
+  background: #0a1f15 !important;
+  border-color: rgba(16, 185, 129, 0.45) !important;
 }
 .key-theme-matrix .key-domain-wizard__dns-table {
   background: #040f0a !important;
-  border-color: rgba(16, 185, 129, 0.22) !important;
+  border-color: rgba(16, 185, 129, 0.25) !important;
 }
 .key-theme-matrix .key-domain-wizard__primary {
   background: linear-gradient(135deg, #059669, #10b981) !important;
@@ -26724,59 +27059,67 @@ body.key-editor-open header.key-glass-header {
 .key-theme-luxury .key-domain-wizard,
 .key-theme-luxury .key-domain-remove-dialog,
 .key-theme-luxury .key-how-works-dialog {
-  background: #0b0b0e !important;
-  border: 1px solid rgba(212, 175, 55, 0.28) !important;
-  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.75), 0 0 24px -4px rgba(212, 175, 55, 0.25) !important;
+  background: #0e0d12 !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.35) !important;
+  box-shadow: 0 32px 72px rgba(0, 0, 0, 0.8), 0 0 28px -4px rgba(212, 175, 55, 0.35) !important;
 }
 .key-theme-luxury .key-provider-card {
-  background: #15151a !important;
-  border: 1.5px solid rgba(212, 175, 55, 0.22) !important;
+  background: #17161f !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.25) !important;
 }
 .key-theme-luxury .key-provider-card:hover {
-  background: #202028 !important;
+  background: #23222e !important;
   border-color: #d97706 !important;
-  box-shadow: 0 4px 20px -2px rgba(212, 175, 55, 0.4) !important;
+  box-shadow: 0 4px 20px -2px rgba(212, 175, 55, 0.45) !important;
 }
 .key-theme-luxury .key-domain-wizard__input,
 .key-theme-luxury .key-domain-wizard__provider-input,
 .key-theme-luxury .key-domain-wizard .key-page-picker__trigger {
   background: #070709 !important;
-  border-color: rgba(212, 175, 55, 0.25) !important;
+  border-color: rgba(212, 175, 55, 0.3) !important;
   color: #fafafa !important;
+}
+.key-theme-luxury .key-domain-wizard .key-page-picker__menu {
+  background: #14131b !important;
+  border-color: rgba(212, 175, 55, 0.45) !important;
 }
 .key-theme-luxury .key-domain-wizard__primary {
   background: linear-gradient(135deg, #d97706, #f59e0b) !important;
 }
 
-/* --- CYBERPUNK AZURE --- */
+/* --- CYBERPUNK NEON --- */
 .key-theme-cyberpunk .key-domain-wizard,
 .key-theme-cyberpunk .key-domain-remove-dialog,
 .key-theme-cyberpunk .key-how-works-dialog {
-  background: #0c1527 !important;
-  border: 1px solid rgba(56, 189, 248, 0.28) !important;
-  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.75), 0 0 24px -4px rgba(56, 189, 248, 0.25) !important;
+  background: #0f0c1b !important;
+  border: 1.5px solid rgba(236, 72, 153, 0.35) !important;
+  box-shadow: 0 32px 72px rgba(0, 0, 0, 0.8), 0 0 28px -4px rgba(236, 72, 153, 0.35) !important;
 }
 .key-theme-cyberpunk .key-provider-card {
-  background: #122038 !important;
-  border: 1.5px solid rgba(56, 189, 248, 0.22) !important;
+  background: #19142d !important;
+  border: 1.5px solid rgba(236, 72, 153, 0.25) !important;
 }
 .key-theme-cyberpunk .key-provider-card:hover {
-  background: #182b4c !important;
-  border-color: #0284c7 !important;
-  box-shadow: 0 4px 20px -2px rgba(56, 189, 248, 0.4) !important;
+  background: #231c3e !important;
+  border-color: #ec4899 !important;
+  box-shadow: 0 4px 20px -2px rgba(236, 72, 153, 0.45) !important;
 }
 .key-theme-cyberpunk .key-domain-wizard__input,
 .key-theme-cyberpunk .key-domain-wizard__provider-input,
 .key-theme-cyberpunk .key-domain-wizard .key-page-picker__trigger {
-  background: #070c17 !important;
-  border-color: rgba(56, 189, 248, 0.25) !important;
-  color: #f8fafc !important;
+  background: #080612 !important;
+  border-color: rgba(236, 72, 153, 0.3) !important;
+  color: #fff1f2 !important;
+}
+.key-theme-cyberpunk .key-domain-wizard .key-page-picker__menu {
+  background: #161129 !important;
+  border-color: rgba(236, 72, 153, 0.45) !important;
 }
 .key-theme-cyberpunk .key-domain-wizard__primary {
-  background: linear-gradient(135deg, #0284c7, #38bdf8) !important;
+  background: linear-gradient(135deg, #db2777, #f43f5e) !important;
 }
 
-/* --- DARK MODE & EYE COMFORT --- */
+/* --- DEEP DARK & EYE VISION --- */
 .key-theme-dark .key-domain-wizard,
 .key-theme-dark .key-domain-remove-dialog,
 .key-theme-dark .key-how-works-dialog,
@@ -26784,19 +27127,19 @@ body.key-editor-open header.key-glass-header {
 .key-theme-eyevision .key-domain-remove-dialog,
 .key-theme-eyevision .key-how-works-dialog {
   background: #0e1424 !important;
-  border: 1px solid rgba(99, 102, 241, 0.28) !important;
-  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.75), 0 0 24px -4px rgba(99, 102, 241, 0.25) !important;
+  border: 1.5px solid rgba(99, 102, 241, 0.35) !important;
+  box-shadow: 0 32px 72px rgba(0, 0, 0, 0.8), 0 0 28px -4px rgba(99, 102, 241, 0.35) !important;
 }
 .key-theme-dark .key-provider-card,
 .key-theme-eyevision .key-provider-card {
   background: #141c33 !important;
-  border: 1.5px solid rgba(99, 102, 241, 0.22) !important;
+  border: 1.5px solid rgba(99, 102, 241, 0.25) !important;
 }
 .key-theme-dark .key-provider-card:hover,
 .key-theme-eyevision .key-provider-card:hover {
   background: #1c2645 !important;
   border-color: #6366f1 !important;
-  box-shadow: 0 4px 20px -2px rgba(99, 102, 241, 0.4) !important;
+  box-shadow: 0 4px 20px -2px rgba(99, 102, 241, 0.45) !important;
 }
 .key-theme-dark .key-domain-wizard__input,
 .key-theme-dark .key-domain-wizard__provider-input,
@@ -26805,8 +27148,13 @@ body.key-editor-open header.key-glass-header {
 .key-theme-eyevision .key-domain-wizard__provider-input,
 .key-theme-eyevision .key-domain-wizard .key-page-picker__trigger {
   background: #090d16 !important;
-  border-color: rgba(99, 102, 241, 0.25) !important;
+  border-color: rgba(99, 102, 241, 0.3) !important;
   color: #f8fafc !important;
+}
+.key-theme-dark .key-domain-wizard .key-page-picker__menu,
+.key-theme-eyevision .key-domain-wizard .key-page-picker__menu {
+  background: #11182c !important;
+  border-color: rgba(99, 102, 241, 0.45) !important;
 }
 .key-theme-dark .key-domain-wizard__primary,
 .key-theme-eyevision .key-domain-wizard__primary {
@@ -26832,11 +27180,14 @@ body.key-editor-open header.key-glass-header {
 .key-theme-light .key-how-works-dialog__header p {
   color: #64748b !important;
 }
+.key-theme-light .key-domain-wizard__lead strong {
+  color: #0f172a !important;
+}
 .key-theme-light .key-domain-wizard__label {
   color: #334155 !important;
 }
 .key-theme-light .key-provider-card {
-  background: #f8fafc !important;
+  background: #ffffff !important;
   border: 1.5px solid #e2e8f0 !important;
   color: #0f172a !important;
 }
@@ -26844,12 +27195,69 @@ body.key-editor-open header.key-glass-header {
   background: #f1f5f9 !important;
   border-color: #6366f1 !important;
 }
+.key-theme-light .key-provider-card__name {
+  color: #0f172a !important;
+}
+.key-theme-light .key-provider-card__blurb {
+  color: #64748b !important;
+}
 .key-theme-light .key-domain-wizard__input,
 .key-theme-light .key-domain-wizard__provider-input,
 .key-theme-light .key-domain-wizard .key-page-picker__trigger {
   background: #ffffff !important;
   border-color: #cbd5e1 !important;
   color: #0f172a !important;
+}
+.key-theme-light .key-domain-wizard .key-page-picker__trigger-label {
+  color: #0f172a !important;
+}
+.key-theme-light .key-domain-wizard .key-page-picker__trigger-label.is-placeholder {
+  color: #94a3b8 !important;
+}
+.key-theme-light .key-domain-wizard .key-page-picker__menu {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12) !important;
+}
+.key-theme-light .key-domain-wizard .key-page-picker__search {
+  background: #f8fafc !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+.key-theme-light .key-domain-wizard .key-page-picker__search-input {
+  color: #0f172a !important;
+}
+.key-theme-light .key-domain-wizard .key-page-picker__search-input::placeholder {
+  color: #94a3b8 !important;
+}
+.key-theme-light .key-domain-wizard .key-page-picker__option-title {
+  color: #0f172a !important;
+}
+.key-theme-light .key-domain-wizard .key-page-picker__option-id {
+  color: #64748b !important;
+}
+.key-theme-light .key-domain-wizard .key-page-picker__option:hover,
+.key-theme-light .key-domain-wizard .key-page-picker__option--selected {
+  background: #f1f5f9 !important;
+  border-color: #6366f1 !important;
+}
+.key-theme-light .key-domain-wizard .key-page-picker__option:hover .key-page-picker__option-title,
+.key-theme-light .key-domain-wizard .key-page-picker__option--selected .key-page-picker__option-title {
+  color: #0f172a !important;
+}
+.key-theme-light .key-domain-wizard .key-page-picker__footer {
+  background: #f8fafc !important;
+  border-top: 1px solid #e2e8f0 !important;
+  color: #64748b !important;
+}
+.key-theme-light .key-domain-wizard__auto-steps > div {
+  background: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+  color: #334155 !important;
+}
+.key-theme-light .key-domain-wizard__help-chip {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #4f46e5 !important;
 }
 .key-theme-light .key-domain-wizard__dns-table {
   background: #ffffff !important;
@@ -26873,7 +27281,7 @@ body.key-editor-open header.key-glass-header {
   background: linear-gradient(135deg, #4f46e5, #6366f1) !important;
 }
 
-/* Custom Domains High Contrast Text Guarantee */
+/* 7. CUSTOM DOMAINS SCREEN TEXT HIGH CONTRAST GUARANTEE */
 .key-domains-lovable__desc {
   color: var(--key-text-secondary, #cbd5e1) !important;
 }
@@ -26899,5 +27307,4 @@ body.key-editor-open header.key-glass-header {
 .key-theme-light .key-custom-domain-guide__steps li {
   color: #0f172a !important;
 }
-
 

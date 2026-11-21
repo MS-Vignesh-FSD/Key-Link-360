@@ -883,24 +883,24 @@ export default function ConnectDomainWizard({
             />
             {inputPreview.isValid && (
               <div className="mt-2 flex flex-wrap items-center gap-2">
-                <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-bold text-emerald-700">
+                <span className="rounded-full bg-emerald-500/15 border border-emerald-500/30 px-2.5 py-1 text-[11px] font-bold text-emerald-300">
                   Looks good
                 </span>
                 {inputPreview.kindLabel && (
-                  <span className="rounded-full bg-indigo-50 px-2.5 py-1 text-[11px] font-semibold text-indigo-700">
+                  <span className="rounded-full bg-indigo-500/15 border border-indigo-500/30 px-2.5 py-1 text-[11px] font-bold text-indigo-300">
                     {inputPreview.kindLabel}
                   </span>
                 )}
               </div>
             )}
             {inputPreview.validationError && domainName.trim() && (
-              <p className="mt-2 text-xs text-rose-600">{inputPreview.validationError}</p>
+              <p className="mt-2 text-xs text-rose-400 font-semibold">{inputPreview.validationError}</p>
             )}
 
             <div className="mt-4">
               <label className="key-domain-wizard__label">
                 Which page should open on{" "}
-                <strong>{inputPreview.normalized || "this address"}</strong>?
+                <strong className="text-white">{inputPreview.normalized || "this address"}</strong>?
               </label>
               <SearchablePagePicker
                 pages={pages}
@@ -910,8 +910,8 @@ export default function ConnectDomainWizard({
                 connectingHostname={inputPreview.normalized || normaliseHostname(domainName)}
                 onSelectAttempt={requestPageSelection}
               />
-              <p className="mt-2 text-xs leading-relaxed text-slate-500">
-                Tip: Each bio page can open on only <strong>one</strong> custom domain. To connect
+              <p className="mt-2 text-xs leading-relaxed text-[var(--key-muted,#c4b5fd)] font-medium">
+                Tip: Each bio page can open on only <strong className="text-white">one</strong> custom domain. To connect
                 another subdomain on the same root, pick a page that is not already linked. You can
                 connect as many custom domains as you need.
               </p>
@@ -949,7 +949,7 @@ export default function ConnectDomainWizard({
               </p>
             )}
             {preferredProviderId && (
-              <p className="mt-2 text-xs text-slate-500">
+              <p className="mt-2 text-xs text-[var(--key-muted,#c4b5fd)] font-medium">
                 Last used: {getProviderBranding(preferredProviderId).displayName}
               </p>
             )}
@@ -996,8 +996,8 @@ export default function ConnectDomainWizard({
               })}
             </div>
             {isSubmitting && (
-              <p className="mt-3 flex items-center gap-2 text-sm text-slate-500">
-                <Loader2 className="h-4 w-4 animate-spin" /> Preparing DNS records…
+              <p className="mt-3 flex items-center gap-2 text-sm text-slate-200 font-medium">
+                <Loader2 className="h-4 w-4 animate-spin text-[var(--key-accent-3,#c084fc)]" /> Preparing DNS records…
               </p>
             )}
             {formError && <p className="key-domain-wizard__error">{formError}</p>}
@@ -1089,11 +1089,11 @@ export default function ConnectDomainWizard({
                 return (
                   <li key={label} className={done ? "is-done" : current ? "is-current" : ""}>
                     {done ? (
-                      <Check className="h-4 w-4 text-emerald-600" />
+                      <Check className="h-4 w-4 text-emerald-400" />
                     ) : current ? (
-                      <Loader2 className="h-4 w-4 animate-spin text-indigo-600" />
+                      <Loader2 className="h-4 w-4 animate-spin text-[var(--key-accent-3,#c084fc)]" />
                     ) : (
-                      <span className="inline-block h-4 w-4 rounded-full bg-slate-200" />
+                      <span className="inline-block h-4 w-4 rounded-full bg-white/20 border border-white/30" />
                     )}
                     {label}
                   </li>
@@ -1101,7 +1101,7 @@ export default function ConnectDomainWizard({
               })}
             </ul>
             {dnsAutoProvisioned && (
-              <p className="mt-3 text-xs font-medium text-emerald-700">DNS updated automatically</p>
+              <p className="mt-3 text-xs font-semibold text-emerald-400">DNS updated automatically</p>
             )}
             {verifyError && <p className="key-domain-wizard__error mt-3">{verifyError}</p>}
             {!isSubmitting && verifyError && connectedDomain && (
@@ -1130,7 +1130,7 @@ export default function ConnectDomainWizard({
                 Back — choose Manual instead
               </button>
             )}
-            <p className="mt-4 text-center text-xs text-slate-500">
+            <p className="mt-4 text-center text-xs text-[var(--key-muted,#c4b5fd)] font-medium">
               {dnsConfirmed
                 ? "DNS is done. Waiting for HTTPS can take 1–3 minutes — keep this open."
                 : "Please wait — your domain appears on Custom Domains only after LIVE is complete."}
@@ -1203,9 +1203,9 @@ export default function ConnectDomainWizard({
 
             {verifyError && <p className="key-domain-wizard__error">{verifyError}</p>}
             {dnsAutoProvisioned && !verifyError && (
-              <p className="mt-2 text-xs text-slate-600">
+              <p className="mt-2 text-xs text-[var(--key-muted,#c4b5fd)] font-medium">
                 We already tried to add this automatically. If check again still fails, confirm the
-                record in Cloudflare is <strong>DNS only</strong> (gray cloud), not Proxied.
+                record in Cloudflare is <strong className="text-white">DNS only</strong> (gray cloud), not Proxied.
               </p>
             )}
 
@@ -1269,10 +1269,10 @@ export default function ConnectDomainWizard({
             role="dialog"
             aria-modal="true"
           >
-            <h3 className="text-lg font-bold text-slate-950">Confirm page selection</h3>
-            <p className="mt-2 text-sm text-slate-600">
-              Should <strong>{pendingPage.title}</strong> open when visitors go to{" "}
-              <strong>{inputPreview.normalized || normaliseHostname(domainName)}</strong>?
+            <h3 className="text-lg font-bold text-slate-100">Confirm page selection</h3>
+            <p className="mt-2 text-sm text-slate-300">
+              Should <strong className="text-white">{pendingPage.title}</strong> open when visitors go to{" "}
+              <strong className="text-white">{inputPreview.normalized || normaliseHostname(domainName)}</strong>?
             </p>
             <div className="mt-6 flex gap-3">
               <button type="button" onClick={cancelPageSelection} className="key-domain-remove-dialog__cancel">
