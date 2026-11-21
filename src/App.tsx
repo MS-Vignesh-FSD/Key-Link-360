@@ -117,6 +117,7 @@ import {
   markNotificationRead,
   markAllNotificationsRead,
   deleteNotification,
+  clearAllNotifications,
   writeNotifications,
   CreateNotificationInput
 } from "./storage/notificationStorage";
@@ -649,6 +650,10 @@ export default function App() {
 
   const handleDeleteNotification = React.useCallback((id: string) => {
     setNotifications((prev) => deleteNotification(prev, id));
+  }, []);
+
+  const handleClearAllNotifications = React.useCallback(() => {
+    setNotifications((prev) => clearAllNotifications(prev));
   }, []);
 
   const savePublishSettings = (settings: PublishSettings) => {
@@ -2569,6 +2574,7 @@ export default function App() {
             onMarkNotificationRead={handleMarkNotificationRead}
             onMarkAllNotificationsRead={handleMarkAllNotificationsRead}
             onDeleteNotification={handleDeleteNotification}
+            onClearAllNotifications={handleClearAllNotifications}
             onNotificationNavigate={handleNotificationNavigate}
             onPublish={() => setIsPublishOpen(true)}
             onLogout={handleLogout}

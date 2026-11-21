@@ -17,6 +17,7 @@ interface HeaderProps {
   onMarkNotificationRead: (id: string) => void;
   onMarkAllNotificationsRead: () => void;
   onDeleteNotification?: (id: string) => void;
+  onClearAllNotifications?: () => void;
   onNotificationNavigate?: (screen: ScreenId, pageId?: string) => void;
   onPublish?: () => void;
   onLogout: () => void;
@@ -33,6 +34,7 @@ export default function Header({
   onMarkNotificationRead,
   onMarkAllNotificationsRead,
   onDeleteNotification,
+  onClearAllNotifications,
   onNotificationNavigate,
   onPublish,
   onLogout
@@ -91,6 +93,7 @@ export default function Header({
           onMarkRead={onMarkNotificationRead}
           onMarkAllRead={onMarkAllNotificationsRead}
           onDeleteNotification={onDeleteNotification}
+          onClearAllNotifications={onClearAllNotifications}
           onNavigate={onNotificationNavigate || onScreenChange}
         />
 
